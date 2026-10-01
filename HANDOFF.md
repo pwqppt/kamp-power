@@ -1,16 +1,16 @@
 # 다음 작업자에게
 
 ## 최신 중단 지점 — 2026-10-02
-이번에는 노동비 차액 정의와 공식 근거 확인만 완료했다. docs/LABOR_COST_BASIS.md, config/labor_scenarios.json에 저장했다. 정책 근거 단계 전체와 경제성 시뮬레이션은 미완료다.
+이번에는 연구 우선순위를 재점검했다. 예측·오류/피크 조건·피크 저감이 보고서의 80~85%를 차지하는 본체이고, 정책·경제성은 검증된 결과를 원화 의사결정으로 번역하는 15~20%의 부가 분석으로 고정했다. 노동비 차액 정의는 완료됐지만 한전 요금과 경제성 시뮬레이션은 미완료다.
 
 기존 로컬 작업폴더의 Git 이력이 원격과 달라 이를 보존하고 최신 main을 별도 `kamp-power-current` 폴더에 clone했다. 새 환경에서는 저장소 루트를 기준으로 상대경로 명령을 사용한다. clean clone의 `python run_stage.py check`는 원본 해시 검사만 통과했다. 전체 예측 재검증 또는 재학습은 수행하지 않았다.
 
-검증: JSON 파싱, 4개 시나리오×2개 시급의 비용과 15분 야간 전환 예시 산술 확인. 현재 단계의 미확인 사항은 한전 현행 요금·계약·전력 단위·실제 근무표다. 다음 첫 명령: `cat docs/NEXT_STAGE.md docs/LABOR_COST_BASIS.md`. 이후 한전 공식 요금 근거표를 작성할 것.
+검증: 기존 모델·진단 산출물을 출제요구와 대조하고 `docs/REQUIREMENTS_TRACEABILITY.md`에 요구사항-증거 추적표를 만들었으며 외부자료 대장을 추가했다. 다음 첫 명령: `cat PROJECT_STATUS.md docs/REQUIREMENTS_TRACEABILITY.md docs/EXTERNAL_DATA_REGISTER.md`. 이후 CP03B의 제공 열별 오류·피크 요인 분석을 보강하고 CP04A 피크 저감 실험을 설계할 것.
 
 사용자 요청: 작은 세부 단계마다 기록·업로드 후 브리핑하고 마무리한다. 경제성 실험 결과가 갖춰지면 최종 모델·결론 검토에 들어가기 전에 일시 중단하고 모델 전환을 요청한다. 정확한 잔여 사용량을 알 수 있다고 가정하지 않는다.
 
 ## 바로 시작하는 프롬프트
-> 이 폴더의 CLAUDE.md, PROJECT_STATUS.md, HANDOFF.md, docs/DECISIONS.md를 읽고 기존 산출물을 확인해 줘. 01~03 실험을 처음부터 반복하지 말고, docs/NEXT_STAGE.md의 04 경제성 분석부터 한 단계씩 이어가. 각 단계의 코드·결과·가정·검증 기록을 남기고 PROJECT_STATUS.md와 HANDOFF.md를 갱신해. 검증된 절감액이 없으면 없다고 보고하고 테스트 결과에 맞춰 모델을 다시 선택하지 마.
+> 이 폴더의 CLAUDE.md, PROJECT_STATUS.md, HANDOFF.md, docs/RESEARCH_PLAN.md, docs/DECISIONS.md를 읽고 기존 산출물을 확인해 줘. 01~03 실험을 처음부터 반복하지 말고, 현재 상태표의 다음 미완료 단계부터 한 단계씩 이어가. 출제요구인 예측·오류/피크 조건·피크 저감을 본체로 유지하고 요금·인건비는 검증된 결과의 후처리로만 사용해. 외부자료는 docs/EXTERNAL_DATA_REGISTER.md에 기록하고 각 단계의 코드·결과·가정·검증을 남긴 뒤 PROJECT_STATUS.md와 HANDOFF.md를 갱신해.
 
 플러그인이 없는 새 AI 계정에는 `docs/AGENT_START_PROMPT.md`의 범용 프롬프트를 사용한다. 최신 상태 문서로 현재 단계를 판별하며 특정 단계에 고정되어 있지 않다. 공개 clone과 달리 원격 쓰기에는 별도 인증이 필요하다.
 
