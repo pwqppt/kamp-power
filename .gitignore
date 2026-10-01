@@ -12,6 +12,8 @@ data/features.pkl
 data/hourly_audited.csv
 data/quarter_hour.csv
 outputs/final_model.joblib
+outputs/test_predictions.csv
 outputs/test_predictions_diagnostics.csv
 outputs/validation_predictions.csv.gz
 assets/NanumGothic-Regular.ttf
+CHECKSUMS.json
