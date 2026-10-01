@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "checked_on": "2026-10-02",
+  "status": "illustrative_weekday_cost_differences_only",
+  "currency": "KRW",
+  "wage_basis_assumption": "hourly_ordinary_wage",
+  "hourly_wages": [13000, 16000],
+  "source_document": "docs/LABOR_COST_BASIS.md",
+  "legal_article": "Labor Standards Act Article 56",
+  "assumptions": ["article_56_applies", "adult_workers", "non_holiday", "no_applicable_exemption", "statutory_minimum_premiums"],
+  "night_window_local": {"timezone": "Asia/Seoul", "start_inclusive": "22:00", "end_exclusive": "06:00"},
+  "minimum_premium_fractions": {"night": 0.5, "overtime": 0.5},
+  "scenarios": [
+    {"id": "unchanged_paid_hours_and_premiums", "increment_multiplier": 0.0, "one_worker_one_hour_costs": [0, 0]},
+    {"id": "replace_day_with_night_no_overtime", "increment_multiplier": 0.5, "one_worker_one_hour_costs": [6500, 8000]},
+    {"id": "add_regular_night_hour", "increment_multiplier": 1.5, "one_worker_one_hour_costs": [19500, 24000]},
+    {"id": "add_overtime_night_hour", "increment_multiplier": 2.0, "one_worker_one_hour_costs": [26000, 32000]}
+  ],
+  "sensitivity_only": {"affected_workers": [1, 2, 4], "affected_hours_per_worker": [0.25, 0.5, 1.0]},
+  "guardrails": ["do_not_infer_workers_from_power", "do_not_equate_shift_delay_to_extra_work_hours", "compare_before_and_after_pay", "deduplicate_overlapping_worker_intervals", "not_a_payroll_engine"],
+  "unresolved": ["actual_article_56_eligibility", "ordinary_wage_composition", "staffing_schedule", "contractual_premiums", "employer_social_cost", "holiday_and_part_time_rules", "power_unit", "electricity_tariff"]
+}
