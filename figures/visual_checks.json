@@ -1,0 +1,26 @@
+[
+  {
+    "figure": "01_feature_comparison",
+    "automated_issues": [],
+    "font": "NanumGothic",
+    "units": "source unit, not verified kW"
+  },
+  {
+    "figure": "02_forecast_first_week",
+    "automated_issues": [],
+    "font": "NanumGothic",
+    "units": "source unit, not verified kW"
+  },
+  {
+    "figure": "03_treatment_sensitivity",
+    "automated_issues": [],
+    "font": "NanumGothic",
+    "units": "source unit, not verified kW"
+  },
+  {
+    "figure": "04_error_by_hour",
+    "automated_issues": [],
+    "font": "NanumGothic",
+    "units": "source unit, not verified kW"
+  }
+]

@@ -1,0 +1,80 @@
+{
+  "selection": {
+    "features": "F2",
+    "model": "LGB_medium",
+    "selected_validation_model": "LGB_medium",
+    "best_validation_overall_MAE": "SeasonalNaive",
+    "selection": "Apr-Jun only; features <=2% min MAE prefer fewer; ML candidates <=5% min MAE prefer peak MAE. SeasonalNaive remains explicit competitor even if better.",
+    "calibration": "July held out for residual intervals; no test-driven adjustment.",
+    "residual_q05": -69.03124497924043,
+    "residual_q95": 74.23809352304008,
+    "day_peak_upper_margin90": 81.83062842815824,
+    "test_start": "2021-08-01",
+    "test_end": "2021-09-14",
+    "seed": 42
+  },
+  "test_scores": [
+    {
+      "model": "LGB_medium",
+      "subset": "all",
+      "n": 4320,
+      "days": 45,
+      "mae": 27.84376085254091,
+      "rmse": 49.13550275320409,
+      "wape": 0.3176421496800123,
+      "daily_peak_mae": 41.316728198140865,
+      "peak_underprediction": 14.227212358188947,
+      "peak_day_recall": 0.6538461538461539,
+      "alarm_precision": 0.7727272727272727,
+      "false_alarm_days": 5
+    },
+    {
+      "model": "SeasonalNaive",
+      "subset": "all",
+      "n": 4320,
+      "days": 45,
+      "mae": 32.574305555555554,
+      "rmse": 59.3414924945563,
+      "wape": 0.3716082929959517,
+      "daily_peak_mae": 49.46666666666667,
+      "peak_underprediction": 24.42222222222222,
+      "peak_day_recall": 0.7692307692307693,
+      "alarm_precision": 0.7692307692307693,
+      "false_alarm_days": 6
+    },
+    {
+      "model": "LGB_medium",
+      "subset": "unseen_patterns",
+      "n": 4320,
+      "days": 45,
+      "mae": 27.84376085254091,
+      "rmse": 49.13550275320409,
+      "wape": 0.3176421496800123,
+      "daily_peak_mae": 41.316728198140865,
+      "peak_underprediction": 14.227212358188947,
+      "peak_day_recall": 0.6538461538461539,
+      "alarm_precision": 0.7727272727272727,
+      "false_alarm_days": 5
+    },
+    {
+      "model": "SeasonalNaive",
+      "subset": "unseen_patterns",
+      "n": 4320,
+      "days": 45,
+      "mae": 32.574305555555554,
+      "rmse": 59.3414924945563,
+      "wape": 0.3716082929959517,
+      "daily_peak_mae": 49.46666666666667,
+      "peak_underprediction": 24.42222222222222,
+      "peak_day_recall": 0.7692307692307693,
+      "alarm_precision": 0.7692307692307693,
+      "false_alarm_days": 6
+    }
+  ],
+  "pointwise_90_coverage": 0.8472222222222222,
+  "day_peak_90_upper_coverage": 0.9555555555555556,
+  "interval_mean_width": 132.9620986361617,
+  "test_days_seen_pattern": 0,
+  "train_days": 188,
+  "latest_training_label": "2021-07-31 00:00:00"
+}

@@ -1,0 +1,22 @@
+|--- actual_production <= 312.50
+|   |--- actual_production <= 174.50
+|   |   |--- actual_temp <= 25.95
+|   |   |   |--- class: 0
+|   |   |--- actual_temp >  25.95
+|   |   |   |--- class: 0
+|   |--- actual_production >  174.50
+|   |   |--- hour <= 7.50
+|   |   |   |--- class: 0
+|   |   |--- hour >  7.50
+|   |   |   |--- class: 0
+|--- actual_production >  312.50
+|   |--- actual_temp <= 23.75
+|   |   |--- hour <= 7.50
+|   |   |   |--- class: 0
+|   |   |--- hour >  7.50
+|   |   |   |--- class: 1
+|   |--- actual_temp >  23.75
+|   |   |--- actual_temp <= 27.65
+|   |   |   |--- class: 1
+|   |   |--- actual_temp >  27.65
+|   |   |   |--- class: 1

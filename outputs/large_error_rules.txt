@@ -1,0 +1,19 @@
+|--- actual_temp <= 22.85
+|   |--- actual_temp <= 11.15
+|   |   |--- dow <= 4.50
+|   |   |   |--- class: 1
+|   |   |--- dow >  4.50
+|   |   |   |--- class: 0
+|   |--- actual_temp >  11.15
+|   |   |--- actual_production <= 0.50
+|   |   |   |--- class: 0
+|   |   |--- actual_production >  0.50
+|   |   |   |--- class: 0
+|--- actual_temp >  22.85
+|   |--- dow <= 0.50
+|   |   |--- class: 0
+|   |--- dow >  0.50
+|   |   |--- actual_temp <= 27.75
+|   |   |   |--- class: 1
+|   |   |--- actual_temp >  27.75
+|   |   |   |--- class: 1

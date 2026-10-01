@@ -1,0 +1,8 @@
+{
+  "mae_difference_ML_minus_naive": -4.730544703014646,
+  "day_bootstrap_95": [
+    -15.228701387773791,
+    5.176217475287258
+  ],
+  "interpretation": "Day-block resampling; repeated patterns/serial dependence limit inference; no causal claim."
+}

@@ -1,0 +1,14 @@
+{
+  "features": "F2",
+  "model": "LGB_medium",
+  "selected_validation_model": "LGB_medium",
+  "best_validation_overall_MAE": "SeasonalNaive",
+  "selection": "Apr-Jun only; features <=2% min MAE prefer fewer; ML candidates <=5% min MAE prefer peak MAE. SeasonalNaive remains explicit competitor even if better.",
+  "calibration": "July held out for residual intervals; no test-driven adjustment.",
+  "residual_q05": -69.03124497924043,
+  "residual_q95": 74.23809352304008,
+  "day_peak_upper_margin90": 81.83062842815824,
+  "test_start": "2021-08-01",
+  "test_end": "2021-09-14",
+  "seed": 42
+}

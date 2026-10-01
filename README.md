@@ -30,6 +30,8 @@
 ## 환경과 실행
 Python 3.12를 사용했습니다. 다른 컴퓨터의 가상환경은 다시 만드세요. `.venv`는 배포하지 않습니다.
 
+`data/hourly_audited.csv`, `data/quarter_hour.csv`, `data/features.pkl`, 학습모델과 대용량 예측 원문은 재생성 가능하므로 공개 저장소의 초기 체크포인트에서 제외합니다. `python run_stage.py 01`과 `02`가 순서대로 생성합니다. 원본 `data/original.csv`, 핵심 결과표와 검토용 그림은 저장소에 포함합니다. clean clone에서 `check`는 원본 해시까지만 검사하고, CP02 실행 후에는 45×96 예측과 시간 누수까지 검사합니다.
+
 ```bash
 python -m venv .venv
 # macOS/Linux/WSL

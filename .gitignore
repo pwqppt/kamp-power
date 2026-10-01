@@ -1,0 +1,17 @@
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.env
+.env.*
+*.pem
+*.key
+logs/*.log
+# Regenerable intermediate; raw CSV and all study results ARE included.
+data/features.pkl
+data/hourly_audited.csv
+data/quarter_hour.csv
+outputs/final_model.joblib
+outputs/test_predictions_diagnostics.csv
+outputs/validation_predictions.csv.gz
+assets/NanumGothic-Regular.ttf

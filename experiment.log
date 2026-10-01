@@ -1,0 +1,49 @@
+{
+  "rows": 6168,
+  "columns": 18,
+  "days": 257,
+  "quarter_hours": 24672,
+  "start": "2021-01-01 00:00:00",
+  "end": "2021-09-15 00:00:00",
+  "sha256": "8f7af2e49366c93e1d6f5fdef4b5e350066c1792ac463c2c2886e370f4674830",
+  "repaired_rows": 48,
+  "repaired_dates": [
+    "2021-07-13",
+    "2021-07-15"
+  ],
+  "unique_day_patterns": 142,
+  "days_in_repeated_patterns": 160,
+  "repeated_extra_days": 115,
+  "largest_pattern_group": 15,
+  "missing": {
+    "풍속": 3,
+    "강수량": 1,
+    "공장인원": 17
+  },
+  "power_min": 0.0,
+  "power_max": 222.0,
+  "mean_column_max_difference": 0.5,
+  "personnel_range": [
+    0.0,
+    48.38636364
+  ],
+  "fractional_personnel": 3510,
+  "wage_column_values": [
+    1.5,
+    1.0
+  ],
+  "unit_status": "NOT DOCUMENTED: figures use source units; economic model is conditional on kW.",
+  "time_status": "ASSUMPTION: hour is interval-start hour; 15/30/45/60 are interval ends, Asia/Seoul.",
+  "repair_policy": "Infer hour from original row order; exclude entire repaired dates as targets and missing-mask their power history."
+}
+VALIDATION {'features': 'F0', 'model': 'LGB_small', 'n': 8736, 'days': 91, 'mae': 32.86365336538732, 'rmse': 49.38642800837859, 'wape': 0.3482486405904202, 'daily_peak_mae': 39.59405364473995, 'peak_underprediction': 26.73000034594641, 'peak_day_recall': 0.06818181818181818, 'alarm_precision': 0.75, 'false_alarm_days': 1}
+VALIDATION {'features': 'F1', 'model': 'LGB_small', 'n': 8736, 'days': 91, 'mae': 20.77748512501427, 'rmse': 33.09160653267387, 'wape': 0.22017427183840488, 'daily_peak_mae': 24.457284742112044, 'peak_underprediction': 18.016820706998693, 'peak_day_recall': 0.13636363636363635, 'alarm_precision': 0.6666666666666666, 'false_alarm_days': 3}
+VALIDATION {'features': 'F2', 'model': 'LGB_small', 'n': 8736, 'days': 91, 'mae': 20.55081741180663, 'rmse': 33.30415711371899, 'wape': 0.21777232577012517, 'daily_peak_mae': 25.371652619896174, 'peak_underprediction': 20.09636339949012, 'peak_day_recall': 0.045454545454545456, 'alarm_precision': 0.5, 'false_alarm_days': 2}
+VALIDATION {'features': 'F3', 'model': 'LGB_small', 'n': 8736, 'days': 91, 'mae': 20.229303962147334, 'rmse': 32.79324503482083, 'wape': 0.21436532106098616, 'daily_peak_mae': 23.99623991841502, 'peak_underprediction': 18.68535267185329, 'peak_day_recall': 0.06818181818181818, 'alarm_precision': 0.6, 'false_alarm_days': 2}
+VALIDATION {'features': 'F4', 'model': 'LGB_small', 'n': 8736, 'days': 91, 'mae': 20.441042757012617, 'rmse': 32.90265860366044, 'wape': 0.2166090687859348, 'daily_peak_mae': 23.828821217040325, 'peak_underprediction': 18.44790043962361, 'peak_day_recall': 0.13636363636363635, 'alarm_precision': 1.0, 'false_alarm_days': 0}
+VALIDATION {'features': 'F5', 'model': 'LGB_small', 'n': 8736, 'days': 91, 'mae': 20.808758469840573, 'rmse': 33.4040937273531, 'wape': 0.2205056683420555, 'daily_peak_mae': 24.131727130359142, 'peak_underprediction': 18.11493189583477, 'peak_day_recall': 0.11363636363636363, 'alarm_precision': 0.7142857142857143, 'false_alarm_days': 2}
+VALIDATION {'features': 'F2', 'model': 'Ridge', 'n': 8736, 'days': 91, 'mae': 31.68519780710732, 'rmse': 43.062124821050936, 'wape': 0.3357608157705701, 'daily_peak_mae': 34.469372896073146, 'peak_underprediction': 18.807521966955967, 'peak_day_recall': 0.3181818181818182, 'alarm_precision': 0.5185185185185185, 'false_alarm_days': 13}
+VALIDATION {'features': 'F2', 'model': 'ExtraTrees', 'n': 8736, 'days': 91, 'mae': 19.602100079282422, 'rmse': 29.667516736479744, 'wape': 0.20771898453983767, 'daily_peak_mae': 24.645115975973866, 'peak_underprediction': 19.601043689320516, 'peak_day_recall': 0.045454545454545456, 'alarm_precision': 0.6666666666666666, 'false_alarm_days': 1}
+VALIDATION {'features': 'F2', 'model': 'LGB_medium', 'n': 8736, 'days': 91, 'mae': 20.265311587085012, 'rmse': 32.84024631642207, 'wape': 0.21474688565138692, 'daily_peak_mae': 24.05590541260168, 'peak_underprediction': 18.37507281422488, 'peak_day_recall': 0.11363636363636363, 'alarm_precision': 0.5, 'false_alarm_days': 5}
+VALIDATION {'features': 'F2', 'model': 'LGB_smooth', 'n': 8736, 'days': 91, 'mae': 20.530541919962456, 'rmse': 32.08014915238033, 'wape': 0.21755747100661088, 'daily_peak_mae': 24.901067166261257, 'peak_underprediction': 20.11528730696878, 'peak_day_recall': 0.11363636363636363, 'alarm_precision': 0.7142857142857143, 'false_alarm_days': 2}
+FINAL {"selection": {"features": "F2", "model": "LGB_medium", "selected_validation_model": "LGB_medium", "best_validation_overall_MAE": "SeasonalNaive", "selection": "Apr-Jun only; features <=2% min MAE prefer fewer; ML candidates <=5% min MAE prefer peak MAE. SeasonalNaive remains explicit competitor even if better.", "calibration": "July held out for residual intervals; no test-driven adjustment.", "residual_q05": -69.03124497924043, "residual_q95": 74.23809352304008, "day_peak_upper_margin90": 81.83062842815824, "test_start": "2021-08-01", "test_end": "2021-09-14", "seed": 42}, "test_scores": [{"model": "LGB_medium", "subset": "all", "n": 4320, "days": 45, "mae": 27.84376085254091, "rmse": 49.13550275320409, "wape": 0.3176421496800123, "daily_peak_mae": 41.316728198140865, "peak_underprediction": 14.227212358188947, "peak_day_recall": 0.6538461538461539, "alarm_precision": 0.7727272727272727, "false_alarm_days": 5}, {"model": "SeasonalNaive", "subset": "all", "n": 4320, "days": 45, "mae": 32.574305555555554, "rmse": 59.3414924945563, "wape": 0.3716082929959517, "daily_peak_mae": 49.46666666666667, "peak_underprediction": 24.42222222222222, "peak_day_recall": 0.7692307692307693, "alarm_precision": 0.7692307692307693, "false_alarm_days": 6}, {"model": "LGB_medium", "subset": "unseen_patterns", "n": 4320, "days": 45, "mae": 27.84376085254091, "rmse": 49.13550275320409, "wape": 0.3176421496800123, "daily_peak_mae": 41.316728198140865, "peak_underprediction": 14.227212358188947, "peak_day_recall": 0.6538461538461539, "alarm_precision": 0.7727272727272727, "false_alarm_days": 5}, {"model": "SeasonalNaive", "subset": "unseen_patterns", "n": 4320, "days": 45, "mae": 32.574305555555554, "rmse": 59.3414924945563, "wape": 0.3716082929959517, "daily_peak_mae": 49.46666666666667, "peak_underprediction": 24.42222222222222, "peak_day_recall": 0.7692307692307693, "alarm_precision": 0.7692307692307693, "false_alarm_days": 6}], "pointwise_90_coverage": 0.8472222222222222, "day_peak_90_upper_coverage": 0.9555555555555556, "interval_mean_width": 132.9620986361617, "test_days_seen_pattern": 0, "train_days": 188, "latest_training_label": "2021-07-31 00:00:00"}

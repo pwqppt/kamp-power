@@ -1,0 +1,38 @@
+{
+  "rows": 6168,
+  "columns": 18,
+  "days": 257,
+  "quarter_hours": 24672,
+  "start": "2021-01-01 00:00:00",
+  "end": "2021-09-15 00:00:00",
+  "sha256": "8f7af2e49366c93e1d6f5fdef4b5e350066c1792ac463c2c2886e370f4674830",
+  "repaired_rows": 48,
+  "repaired_dates": [
+    "2021-07-13",
+    "2021-07-15"
+  ],
+  "unique_day_patterns": 142,
+  "days_in_repeated_patterns": 160,
+  "repeated_extra_days": 115,
+  "largest_pattern_group": 15,
+  "missing": {
+    "풍속": 3,
+    "강수량": 1,
+    "공장인원": 17
+  },
+  "power_min": 0.0,
+  "power_max": 222.0,
+  "mean_column_max_difference": 0.5,
+  "personnel_range": [
+    0.0,
+    48.38636364
+  ],
+  "fractional_personnel": 3510,
+  "wage_column_values": [
+    1.5,
+    1.0
+  ],
+  "unit_status": "NOT DOCUMENTED: figures use source units; economic model is conditional on kW.",
+  "time_status": "ASSUMPTION: hour is interval-start hour; 15/30/45/60 are interval ends, Asia/Seoul.",
+  "repair_policy": "Infer hour from original row order; exclude entire repaired dates as targets and missing-mask their power history."
+}
