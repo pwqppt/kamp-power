@@ -1,0 +1,53 @@
+{
+  "eligible": true,
+  "checks": {
+    "unchanged_interval_forecasts": true,
+    "daily_peak_mae_improved": true,
+    "peak_day_recall_improved": true,
+    "underprediction_not_worse": true
+  },
+  "output_type": "separate daily peak, NOT maximum of point forecast",
+  "peak_head_validation": {
+    "days": 91,
+    "daily_peak_mae": 17.77121584530134,
+    "peak_underprediction": 11.52367043330945,
+    "tp": 23,
+    "fn": 21,
+    "fp": 7,
+    "tn": 40,
+    "recall": 0.5227272727272727,
+    "precision": 0.7666666666666667,
+    "f1": 0.6216216216216216,
+    "false_positive_rate": 0.14893617021276595,
+    "peak_rate": 0.4835164835164835
+  },
+  "reference_validation": {
+    "days": 91,
+    "daily_peak_mae": 19.992784301787694,
+    "peak_underprediction": 14.261528161222392,
+    "tp": 13,
+    "fn": 31,
+    "fp": 6,
+    "tn": 41,
+    "recall": 0.29545454545454547,
+    "precision": 0.6842105263157895,
+    "f1": 0.4126984126984127,
+    "false_positive_rate": 0.1276595744680851,
+    "peak_rate": 0.4835164835164835
+  },
+  "naive_validation": {
+    "days": 91,
+    "daily_peak_mae": 18.923076923076923,
+    "peak_underprediction": 10.472527472527473,
+    "tp": 32,
+    "fn": 12,
+    "fp": 14,
+    "tn": 33,
+    "recall": 0.7272727272727273,
+    "precision": 0.6956521739130435,
+    "f1": 0.7111111111111111,
+    "false_positive_rate": 0.2978723404255319,
+    "peak_rate": 0.4835164835164835
+  },
+  "independent_validation": false
+}
