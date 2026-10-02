@@ -110,3 +110,4 @@ H1: 미채택. 4~6월 MAE 17.107678, 일최대 MAE 20.633839, 피크일 재현�
 
 ## 이전·공유 상태
 GitHub 인증 계정은 `pwqppt`로 확인했다. 공개 기준 저장소는 `https://github.com/pwqppt/kamp-power`다. 공개 전제와 단계별 push 규칙은 docs/RESEARCH_PLAN.md에 기록했다. 현재 경로는 GPT 실행 환경이며 사용자 PC에는 아직 clone하지 않았다.
+`2026-10-02` 최종 산출물 보관 검사: Git blob과 PDF/PPTX/ZIP 원본 해시 일치. `.gitattributes`로 바이너리 줄바꿈 변환 방지.

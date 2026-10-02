@@ -1,0 +1,7 @@
+# Generated binary deliverables must retain their exact bytes under autocrlf.
+*.pdf binary
+*.pptx binary
+*.zip binary
+*.png binary
+*.jpg binary
+*.gz binary
