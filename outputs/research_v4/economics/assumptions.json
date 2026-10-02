@@ -1,0 +1,33 @@
+{
+  "policy": "fixed 10% +/-60 minutes; NOT economically reselected",
+  "unit": "assumed kW; energy=15min mean power *0.25h",
+  "contract": "assumed industrial Eul high voltage A choice I, 300kW",
+  "rates": "2026-04-16 onward rates counterfactually applied to 2021 calendar/load",
+  "basic_rate": 7220,
+  "contract_floor": 90,
+  "residual_demand": [
+    200,
+    250
+  ],
+  "unknowns": [
+    "actual meter unit",
+    "contract and voltage",
+    "12-month valid maximum demand",
+    "power factor",
+    "billing cycle",
+    "equipment feasibility",
+    "actual staffing"
+  ],
+  "omissions": [
+    "VAT",
+    "industry fund",
+    "power-factor adjustment",
+    "setup cost",
+    "demand penalties",
+    "interest"
+  ],
+  "equal_energy_addons": "uniform fuel/climate charges cancel under energy conservation; no bill-total claim",
+  "July": "29 days only, NOT monthly bill estimate",
+  "deployment_recommended": false,
+  "official_pdf_sha256": "63d0527b8a7a33359fd479a7f4075afac50731225b9e9cc00cd3bf11c432da4a"
+}

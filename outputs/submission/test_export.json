@@ -1,0 +1,13 @@
+{
+  "period": "2021-08-01 to 2021-09-14",
+  "rows": 4320,
+  "days": 45,
+  "model": "frozen retained B1 gate>=0.5 mixture else seasonal naive; separate H6 peak head",
+  "training_label_last": "2021-07-31 00:00:00",
+  "first_forecast_origin": "2021-07-31 16:00:00",
+  "selection_using_this_export": false,
+  "independent_test": false,
+  "warning": "Historical test has been observed in earlier repository work. This file meets submission format; it is not a new independent generalization claim.",
+  "same_day_future_actual_inputs": false,
+  "source_sha256": "8f7af2e49366c93e1d6f5fdef4b5e350066c1792ac463c2c2886e370f4674830"
+}

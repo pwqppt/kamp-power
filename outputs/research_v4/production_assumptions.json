@@ -1,0 +1,10 @@
+{
+  "measured_production_preservation": false,
+  "arithmetic_ledger_preservation": true,
+  "assumptions": [
+    "hourly production divided equally into four artificial 15-minute entries",
+    "power and production use same fraction-transfer matrix",
+    "divisible, movable output; no setup, capacity, precedence, quality or delivery constraints"
+  ],
+  "interpretation": "Conditional feasibility illustration only. Real production maintenance cannot be established from this dataset."
+}
