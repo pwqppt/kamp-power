@@ -1,5 +1,13 @@
 # 다음 작업자에게
 
+## 최신 작업 — 컨텍스트 피처·상태 혼합 개선
+
+추가 완료: `residual_experiment.py`와 `adaptive_reference.py`, `adaptive_summary.py` 실행. 일괄 잔차 보정은 미채택, 예측상태 0.5 기준 결합은 4~6월 선택 후 7월 MAE 10.607(기준 12.177). 피크 지표는 아직 기준보다 나쁘다. docs/ADAPTIVE_RESULTS.md 및 outputs/adaptive_v2가 가장 최신. 다음은 피크 오차 분석과 개선 검증 프로토콜이며 아래 residual 후보 설계 안내는 이미 실행된 과거 내용이다. 실험 브랜치는 `experiments/context-features-v2`, main에는 인계 포인터만 갱신한다.
+
+사용자 요청으로 모델 본체 개선을 우선한다. 브랜치 `experiments/context-features-v2`에서 `python context_features.py`를 실행했다. 프로토콜/결과는 docs/CONTEXT_FEATURE_PROTOCOL.md 및 docs/CONTEXT_FEATURE_RESULTS.md. 기존모델/데이터 보존, 신규 미래값 교란 누수 검사 통과. 4~6월 B1_mixture 선정 후 7월 별도 재평가, 8~9월은 이번 실행에서 평가하지 않았다. 현재 결과는 기존 AI보다 향상됐지만 7월의 전주 동일시각 기준을 넘지 못했다.
+
+다음 작업자는 위 브랜치를 checkout하고 신규 결과를 읽는다. 별도 모델 개선 실험을 계속하며 요금·운영 보류 작업은 후순위다. 주간 패턴 residual 보정과 피크 확률보정은 후보 설계이며 아직 실행하지 않았다. 이번 특징은 관측 컨텍스트의 대리값이고 외부 휴가/고장/주문이나 미래 생산계획을 얻은 것은 아니다. 이 기록이 아래 과거 다음단계보다 우선한다.
+
 ## 최신 체크포인트 — 2026-10-02 보류 정책
 
 `python run_stage.py hold_policy` 성공. 4~5월 예측 간 불일치 경계 설정→6월 9개 후보 선정→고정 정책 7월/기존 테스트 적용을 실행했다. AI는 항상실행, 기준예측은 항상보류가 선택됐다. AI 악화율은 6월 6.7%에서 7월 17.2%, 테스트 재사용 20%로 상승하므로 보류 정책의 안전성 개선을 확보하지 못했다. docs/HOLD_POLICY_PROTOCOL.md, docs/HOLD_POLICY_RESULTS.md, outputs/hold_policy 참조. 기존 모델을 재선택하지 않았다.
