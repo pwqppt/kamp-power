@@ -53,3 +53,7 @@ python run_stage.py figures
 04 경제성 코드와 05 최종 제출 보고서는 아직 구현하지 않았습니다. 현 단계 결과를 최종 성능이나 검증된 절감액으로 표현하지 마세요. 숫자의 단위도 원본 설명에서 확인되지 않았으므로 현재 그래프는 ‘원자료 단위’를 사용합니다.
 
 단계가 끝날 때마다 `PROJECT_STATUS.md`와 `HANDOFF.md`를 고친 뒤 커밋·태그·push합니다. 자세한 명령과 중단 시 기록 방식은 `docs/RESEARCH_PLAN.md`에 있습니다.
+# 2026-10-02 후속 체크포인트
+
+공식 배점 대응: [연구 설계](docs/RUBRIC_AND_EXTENSION.md). 생산조건·미탐/오경보·조건부 피크 저감: [실행 결과](docs/EXTENSION_RESULTS.md).
+기존 선택 모델만 복원하려면 환경 설치 후 `python run_stage.py restore`, 이어서 `python run_stage.py conditions`, `python run_stage.py simulate`, `python run_stage.py extension_check`, `python run_stage.py extension_figures`를 실행한다. 각 명령은 로그를 남긴다. 전체 모델 탐색을 새로 수행할 때는 기존 02 단계를 사용한다. 후속 시뮬레이션은 실제 생산 스케줄 최적화 실적이 아니다.

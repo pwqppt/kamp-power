@@ -1,0 +1,19 @@
+{
+  "band_cutoffs_training_only": {
+    "actual_production": [
+      0.0,
+      370.3333333333303
+    ],
+    "actual_personnel": [
+      0.0,
+      0.7796431209999961
+    ],
+    "actual_temp": [
+      11.7,
+      19.7
+    ]
+  },
+  "peak_threshold": 179.0,
+  "analysis": "ex-post, not deployable inputs; no causal claims; hourly covariates repeat four times",
+  "intervals": "paired day bootstrap, repeated patterns and serial dependence limit inference; no multiple-testing correction"
+}

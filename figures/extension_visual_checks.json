@@ -1,0 +1,20 @@
+[
+  {
+    "figure": "05_production_conditions",
+    "automated_issues": [],
+    "font": "NanumGothic",
+    "units": "source unit, not verified kW"
+  },
+  {
+    "figure": "06_conditional_peak_reduction",
+    "automated_issues": [],
+    "font": "NanumGothic",
+    "units": "source unit, not verified kW"
+  },
+  {
+    "figure": "07_peak_success_failure",
+    "automated_issues": [],
+    "font": "NanumGothic",
+    "units": "source unit, not verified kW"
+  }
+]

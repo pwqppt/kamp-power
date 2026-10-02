@@ -1,5 +1,13 @@
 # 다음 작업자에게
 
+## 최신 실행 체크포인트 — 2026-10-02 후속
+
+공식 배점 15/40/15/10/10/10을 docs/RUBRIC_AND_EXTENSION.md에 반영했다. `.venv`를 만들고 고정 requirements를 설치했다. `continue_research.py restore/conditions/simulate` 순서로 기존 모델 복원·조건분석·조건부 이동 실험을 실행했다. 예측 점수는 기존 기록과 1e-7 이내 일치. `check_extension.py`, `extension_figures.py`, `run_stage.py check` 통과; PNG 3개 직접 검토 완료. 상세 수치·한계는 docs/EXTENSION_RESULTS.md. 새 실험은 outputs/extension에 별도 보존했다.
+
+다음은 위 결과를 바탕으로 조정 보류 기준·불확실성 대응의 rolling 검증을 설계하는 작은 단계다. 과거 테스트를 이미 보았다는 사실을 유지하고 기존 모델을 재선택하지 않는다. 전체 탐색 반복은 불필요하며 새 clone에서 필요한 예측만 `.venv/bin/python run_stage.py restore`로 복원한다. 실행 로그가 필요하면 conditions/simulate/extension_check/extension_figures도 run_stage.py로 호출한다.
+
+외부자료 모델 미사용이라는 기존 포괄적 표현은 정정했다. holidays 패키지가 모델의 공휴일 특징을 생성하므로 EXT-004에 사용 사유·방법·출처와 공식 달력/라이선스 대조 미완료를 기록했다. 요금·노동 정책은 모델 입력에 사용하지 않았다. 아래 과거 중단 기록보다 이 실행 체크포인트가 우선한다.
+
 ## 최신 중단 지점 — 2026-10-02
 이번에는 연구 우선순위를 재점검했다. 예측·오류/피크 조건·피크 저감이 보고서의 80~85%를 차지하는 본체이고, 정책·경제성은 검증된 결과를 원화 의사결정으로 번역하는 15~20%의 부가 분석으로 고정했다. 노동비 차액 정의는 완료됐지만 한전 요금과 경제성 시뮬레이션은 미완료다.
 

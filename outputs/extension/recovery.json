@@ -1,0 +1,25 @@
+{
+  "python": "3.12.14",
+  "packages": {
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "scikit-learn": "1.8.0",
+    "lightgbm": "4.7.0",
+    "scipy": "1.17.0",
+    "holidays": "0.105"
+  },
+  "scores_match_previous_atol": 1e-07,
+  "metrics": {
+    "n": 4320,
+    "days": 45,
+    "mae": 27.84376085254091,
+    "rmse": 49.13550275320409,
+    "wape": 0.3176421496800123,
+    "daily_peak_mae": 41.316728198140865,
+    "peak_underprediction": 14.227212358188947,
+    "peak_day_recall": 0.6538461538461539,
+    "alarm_precision": 0.7727272727272727,
+    "false_alarm_days": 5
+  },
+  "training_days": 188
+}

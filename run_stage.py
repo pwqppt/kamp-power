@@ -18,14 +18,19 @@ def check():
     assert p.date.min()==pd.Timestamp('2021-08-01') and p.date.max()==pd.Timestamp('2021-09-14')
     print('PASS: original SHA256, 45 x 96 predictions, unique ordered timestamps, forecast origin, finite required values')
 def main():
-    ap=argparse.ArgumentParser();ap.add_argument('stage',choices=['01','02','03','figures','check']);args=ap.parse_args()
+    ap=argparse.ArgumentParser();ap.add_argument('stage',choices=['01','02','03','figures','check','restore','conditions','simulate','extension_figures','extension_check']);args=ap.parse_args()
     if args.stage=='check':check();return
-    script={'01':'audit.py','02':'experiment.py','03':'diagnostics.py','figures':'visualize.py'}[args.stage]
+    scripts={'01':'audit.py','02':'experiment.py','03':'diagnostics.py','figures':'visualize.py',
+             'restore':'continue_research.py','conditions':'continue_research.py','simulate':'continue_research.py',
+             'extension_figures':'extension_figures.py','extension_check':'check_extension.py'}
+    script=scripts[args.stage]
+    command=[sys.executable,str(ROOT/script)]
+    if args.stage in ['restore','conditions','simulate']: command.append(args.stage)
     logdir=ROOT/'logs';logdir.mkdir(exist_ok=True)
     stamp=datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ');log=logdir/f'{stamp}_{args.stage}.log'
     with log.open('w',encoding='utf8') as f:
-        result=subprocess.run([sys.executable,str(ROOT/script)],cwd=ROOT,stdout=f,stderr=subprocess.STDOUT)
+        result=subprocess.run(command,cwd=ROOT,stdout=f,stderr=subprocess.STDOUT)
     with (logdir/'runs.jsonl').open('a',encoding='utf8') as f:
-        f.write(json.dumps({'utc':stamp,'stage':args.stage,'command':[sys.executable,script],'exit_code':result.returncode,'log':log.name})+'\n')
+        f.write(json.dumps({'utc':stamp,'stage':args.stage,'command':command,'exit_code':result.returncode,'log':log.name})+'\n')
     print(f'exit={result.returncode}; log={log}');sys.exit(result.returncode)
 if __name__=='__main__':main()

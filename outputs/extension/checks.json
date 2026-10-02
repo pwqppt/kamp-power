@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "simulation_rows": 1080,
+  "checks": [
+    "zero-load",
+    "flat-load",
+    "isolated-peak analytical solution",
+    "zero-flexibility identity",
+    "energy conservation",
+    "oracle dominance",
+    "confusion example"
+  ],
+  "limitations": "conditional algebraic routing only; does not validate physical scheduling or causal effects"
+}
