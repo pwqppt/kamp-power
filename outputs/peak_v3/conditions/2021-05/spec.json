@@ -1,0 +1,13 @@
+{
+  "temperature_cuts_training_only": [
+    8.0,
+    12.4
+  ],
+  "threshold": 176.64999999999964,
+  "date_count": 31,
+  "interpretation": "Actual temperature/production are ex-post labels only, never forecast inputs. Associations are not cooling or production causal effects. First maximum breaks timing ties.",
+  "excluded_dates": [
+    "2021-07-13",
+    "2021-07-15"
+  ]
+}

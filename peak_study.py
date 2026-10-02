@@ -322,10 +322,105 @@ def update_status(message):
             '\n\n프로토콜: docs/PEAK_V3_PROTOCOL.md. 경제성보다 연구 본체 우선. 원격 업로드 상태는 docs/PEAK_V3_REMOTE_STATUS.md 참조. 아래 과거 다음단계보다 이 기록이 우선한다.\n'+rest, encoding='utf-8')
 
 
+def summarize():
+    rows = []; eligible = []
+    for name in ['naive', 'reference', 'H1', 'H2', 'H3']:
+        table = pd.read_csv(D/name/'scores.csv')
+        table.insert(0, 'candidate', name); rows.append(table)
+        if name.startswith('H'):
+            decision = json.loads((D/name/'validation_decision.json').read_text(encoding='utf-8'))
+            if decision['eligible']:
+                a = decision['candidate_validation']
+                eligible.append((a['daily_peak_mae'], a['mae'], name))
+    selected = sorted(eligible)[0][2] if eligible else 'reference'
+    dump(D/'selection.json', {'selected': selected, 'eligible': [a[2] for a in eligible],
+         'rule': 'Frozen Apr-Jun gate then daily_peak_mae, mae, ID; never July selection',
+         'production_deployment_approved': False, 'stop_search': True})
+    pd.concat(rows).to_csv(D/'comparison.csv', index=False)
+    x, _ = load(); f = read_forecasts(selected)
+    ref = read_forecasts('reference'); parts = []
+    for start, end in [*FOLDS, JULY]:
+        tr, v = split(x, start, end); g = f[f.fold==start[:7]]
+        dest = D/'conditions'/start[:7]
+        diagnose(g, tr, dest)
+        c = pd.read_csv(dest/'conditions.csv'); c.insert(0, 'fold', start[:7]); parts.append(c)
+    pd.concat(parts, ignore_index=True).to_csv(D/'condition_comparison.csv', index=False)
+    # Large-error thresholds derive only from earlier completed OOF days, never July outcomes.
+    error_rows = []
+    for start, end in [*FOLDS, JULY]:
+        tr, v = split(x, start, end); g = f[f.fold==start[:7]].copy()
+        prior = ref[ref.date < (v.origin.min().normalize())]
+        cutoff = float((prior.y-prior.pred).abs().quantile(.9))
+        g['production'] = np.select([g.actual_production.isna(), g.actual_production.eq(0)], ['missing','zero'], default='positive')
+        g['temperature'] = pd.cut(g.actual_temp, [-np.inf,20,25,30,np.inf], labels=['<=20','20-25','25-30','>30']).astype(str)
+        g['period'] = pd.cut(g.hour, [-1,6,9,16,21,23], labels=['00-07','07-10','10-17','17-22','22-24']).astype(str)
+        for dim in ['production','temperature','period']:
+            for condition, z in g.groupby(dim, observed=True):
+                large = (z.y-z.pred).abs()>=cutoff
+                error_rows.append(dict(fold=start[:7],dimension=dim,condition=condition,n=len(z),days=z.date.nunique(),
+                    large_error_threshold=cutoff,large_errors=int(large.sum()),large_error_rate=large.mean(),
+                    overall_large_error_rate=((g.y-g.pred).abs()>=cutoff).mean(),
+                    peak_rate=(z.y>=z.threshold).mean()))
+    pd.DataFrame(error_rows).to_csv(D/'large_error_conditions.csv', index=False)
+    print('Frozen selection:', selected, '; search stopped. Condition analysis complete.', flush=True)
+
+
+def simulate():
+    from continue_research import routing
+    selected = json.loads((D/'selection.json').read_text(encoding='utf-8'))['selected']
+    f = read_forecasts(selected); f = f[f.date>='2021-04-01']
+    rows = []; examples = []
+    for i, (date, g) in enumerate(f.groupby('date', sort=True)):
+        g = g.sort_values('interval_start'); y = g.y.to_numpy()
+        for fraction in [0., .05, .10, .15]:
+            for slots in [2,4]:
+                for name, col in [('retained_model','pred'),('seasonal_naive','naive'),('oracle_reference','y')]:
+                    pred = g[col].to_numpy(); matrix = routing(pred,fraction,slots)
+                    assert np.allclose(matrix.sum(axis=0),1,rtol=0,atol=1e-8)
+                    assert matrix.min()>=-1e-7
+                    assert np.all(1-np.diag(matrix)<=fraction+1e-7)
+                    a,b = np.where(matrix>1e-9); assert np.all(np.abs(a-b)<=slots)
+                    actual = matrix@y; planned = matrix@pred
+                    assert np.isclose(actual.sum(), y.sum(),rtol=1e-9,atol=1e-7)
+                    assert actual.min()>=-1e-7
+                    reduction = float(y.max()-actual.max())
+                    rows.append(dict(date=str(date.date()),fold=g.fold.iloc[0],model=name,fraction=fraction,window_minutes=slots*15,
+                        original_peak=float(y.max()),adjusted_peak=float(actual.max()),peak_reduction=reduction,
+                        predicted_reduction=float(pred.max()-planned.max()),worsened=int(reduction< -1e-6),
+                        moved_load_sum=float(((1-np.diag(matrix))*y).sum()),total_load_sum=float(y.sum()),
+                        energy_conservation_error=float(actual.sum()-y.sum())))
+                    if fraction==.10 and slots==4 and name=='retained_model':
+                        examples.append(pd.DataFrame({'interval_start':g.interval_start,'date':date,'actual':y,'pred':pred,'adjusted':actual}))
+        if (i+1)%10==0: print('simulation',i+1,'of',f.date.nunique(),flush=True)
+    dest = D/'simulation'; dest.mkdir(exist_ok=True)
+    table = pd.DataFrame(rows); table.to_csv(dest/'daily.csv',index=False)
+    pd.concat(examples).to_csv(dest/'example_series.csv.gz',index=False,compression={'method':'gzip','mtime':0})
+    summaries = []
+    for period, part in [('Apr-Jun',table[table.fold<'2021-07']),('July',table[table.fold=='2021-07']),
+                         *[(n,g) for n,g in table.groupby('fold')]]:
+        for (model,fraction,window),g in part.groupby(['model','fraction','window_minutes']):
+            summaries.append(dict(period=period,model=model,fraction=fraction,window_minutes=window,days=len(g),
+                mean_daily_reduction=g.peak_reduction.mean(),median_daily_reduction=g.peak_reduction.median(),
+                worsened_days=int(g.worsened.sum()),worsened_rate=g.worsened.mean(),
+                worst_daily_change=g.peak_reduction.min(),period_max_reduction=g.original_peak.max()-g.adjusted_peak.max(),
+                moved_fraction=g.moved_load_sum.sum()/g.total_load_sum.sum(),
+                max_energy_conservation_error=g.energy_conservation_error.abs().max()))
+    pd.DataFrame(summaries).to_csv(dest/'summary.csv',index=False)
+    failures = table[table.worsened==1].sort_values('peak_reduction')
+    failures.to_csv(dest/'all_worsened_cases.csv',index=False)
+    dump(dest/'checks.json',{'rows':len(table),'days':int(f.date.nunique()),'all_constraints_passed':True,
+        'zero_fraction_identity':bool(table[table.fraction==0].peak_reduction.eq(0).all()),
+        'max_energy_conservation_error':float(table.energy_conservation_error.abs().max()),
+        'policy_reselected':False,'economic_conversion_performed':False})
+    print('Simulation complete:',len(table),'scenario-days; all worsening cases preserved.',flush=True)
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('stage', choices=['prepare', 'reference', 'H1', 'H2', 'H3'])
+    parser.add_argument('stage', choices=['prepare', 'reference', 'H1', 'H2', 'H3', 'summarize', 'simulate'])
     args = parser.parse_args()
     if args.stage=='prepare': prepare()
     elif args.stage=='reference': references()
+    elif args.stage=='summarize': summarize()
+    elif args.stage=='simulate': simulate()
     else: hypothesis(args.stage)

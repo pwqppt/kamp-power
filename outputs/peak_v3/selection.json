@@ -1,0 +1,7 @@
+{
+  "selected": "reference",
+  "eligible": [],
+  "rule": "Frozen Apr-Jun gate then daily_peak_mae, mae, ID; never July selection",
+  "production_deployment_approved": false,
+  "stop_search": true
+}

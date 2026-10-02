@@ -1,0 +1,9 @@
+{
+  "rows": 2880,
+  "days": 120,
+  "all_constraints_passed": true,
+  "zero_fraction_identity": true,
+  "max_energy_conservation_error": 1.8189894035458565e-12,
+  "policy_reselected": false,
+  "economic_conversion_performed": false
+}
