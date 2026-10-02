@@ -2,6 +2,12 @@
 
 ## 피크 개선 v3 최신 체크포인트 — 2026-10-02
 
+H2: 미채택. 4~6월 MAE 17.153770, 일최대 MAE 20.392214, 피크일 재현율 40.91%. 미충족: mean_mae_preserved, daily_peak_mae_improved, interval_recall_not_worse. 다음: H3: 과거 OOF 잔차 보정.
+
+프로토콜: docs/PEAK_V3_PROTOCOL.md. 경제성보다 연구 본체 우선. 원격 업로드 상태는 docs/PEAK_V3_REMOTE_STATUS.md 참조. 아래 과거 다음단계보다 이 기록이 우선한다.
+
+## 피크 개선 v3 최신 체크포인트 — 2026-10-02
+
 H1: 미채택. 4~6월 MAE 17.107678, 일최대 MAE 20.633839, 피크일 재현율 34.09%. 미충족: mean_mae_preserved, daily_peak_mae_improved, interval_recall_not_worse. 다음: H2: 고정 비대칭 손실.
 
 프로토콜: docs/PEAK_V3_PROTOCOL.md. 경제성보다 연구 본체 우선. 아래 과거 다음단계보다 이 기록이 우선한다.

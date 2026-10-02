@@ -5,7 +5,7 @@ import numpy as np
 import pandas as pd
 import experiment
 from context_features import context
-from peak_study import DATA, OUT, D, W, load, split, read_forecasts, calibration, gate_decision, dump
+from peak_study import DATA, OUT, D, W, load, split, read_forecasts, calibration, gate_decision, dump, peak_gradient
 
 
 def future_source_check():
@@ -52,6 +52,15 @@ def future_source_check():
 
 def run():
     tests = {'source_perturbation': future_source_check()}
+    y = np.array([10., 200., 200., 10.]); p = np.array([5., 150., 210., 15.])
+    def loss(z):
+        weight = np.where((y>=176.) & (z<y), 2., 1.)
+        return .5*weight*(z-y)**2
+    grad, hess = peak_gradient(y, p, 176.)
+    eps = 1e-3
+    np.testing.assert_allclose(grad, (loss(p+eps)-loss(p-eps))/(2*eps), atol=1e-7)
+    np.testing.assert_allclose(hess, (loss(p+eps)-2*loss(p)+loss(p-eps))/eps**2, atol=1e-5)
+    tests['asymmetric_gradient_hessian_finite_difference'] = True
     x, cols = load(); ref = read_forecasts('reference')
     calibration_checks = []
     for month in ['04', '05', '06', '07']:

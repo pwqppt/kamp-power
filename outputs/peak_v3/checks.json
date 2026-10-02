@@ -15,6 +15,7 @@
       "feature_count": 43
     }
   ],
+  "asymmetric_gradient_hessian_finite_difference": true,
   "future_calibration_labels_invariant": [
     {
       "risk_n": 367,
@@ -55,6 +56,7 @@
   ],
   "gate_rejects_no_improvement_and_large_errors": true,
   "candidate_metrics_and_time_order_checked": [
-    "H1"
+    "H1",
+    "H2"
   ]
 }

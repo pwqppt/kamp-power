@@ -29,6 +29,11 @@ def load():
     return pd.read_pickle(W / 'features.pkl'), json.loads((W / 'columns.json').read_text())
 
 
+def peak_gradient(y_true, y_pred, threshold):
+    weight = np.where((y_true >= threshold) & (y_pred < y_true), 2., 1.)
+    return weight * (y_pred-y_true), weight
+
+
 def forecast(tr, v, cols, kind='reference'):
     """Future actuals are absent from the inference frame; state labels are training only."""
     state = tr.actual_production.gt(0).astype(int)
@@ -48,8 +53,7 @@ def forecast(tr, v, cols, kind='reference'):
             fit_args['sample_weight'] = np.where(y >= q95, 2., 1.)
         elif kind == 'H2':
             def asymmetric(y_true, y_pred):
-                weight = np.where((y_true >= q95) & (y_pred < y_true), 2., 1.)
-                return weight * (y_pred - y_true), weight
+                return peak_gradient(y_true, y_pred, q95)
             m.set_params(objective=asymmetric)
             offset = float(y.mean())
             fit_args['init_score'] = np.full(len(y), offset)
