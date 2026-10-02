@@ -57,6 +57,7 @@
   "gate_rejects_no_improvement_and_large_errors": true,
   "candidate_metrics_and_time_order_checked": [
     "H1",
-    "H2"
+    "H2",
+    "H3"
   ]
 }

@@ -1,0 +1,26 @@
+{
+  "Apr-Jun": {
+    "mae": {
+      "delta": 0.0,
+      "low": 0.0,
+      "high": 0.0
+    },
+    "daily_peak_mae": {
+      "delta": 0.0,
+      "low": 0.0,
+      "high": 0.0
+    }
+  },
+  "July": {
+    "mae": {
+      "delta": 0.0,
+      "low": 0.0,
+      "high": 0.0
+    },
+    "daily_peak_mae": {
+      "delta": 0.0,
+      "low": 0.0,
+      "high": 0.0
+    }
+  }
+}
