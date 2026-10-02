@@ -2,6 +2,12 @@
 
 ## 피크 개선 v3 최신 체크포인트 — 2026-10-02
 
+H1: 미채택. 4~6월 MAE 17.107678, 일최대 MAE 20.633839, 피크일 재현율 34.09%. 미충족: mean_mae_preserved, daily_peak_mae_improved, interval_recall_not_worse. 다음: H2: 고정 비대칭 손실.
+
+프로토콜: docs/PEAK_V3_PROTOCOL.md. 경제성보다 연구 본체 우선. 아래 과거 다음단계보다 이 기록이 우선한다.
+
+## 피크 개선 v3 최신 체크포인트 — 2026-10-02
+
 7월 기온·생산기록·시간대 및 피크 크기/시각 진단 완료. 세 가설·채택 규칙 사전 고정. 현재 환경 원래 함수/비교 함수 출력 일치, 역사 저장값은 완전 재현되지 않아 차이를 historical_drift.csv에 기록. 미래 원자료/보정 라벨 교란 검사 통과. 다음: H1 고정 가중학습 실행. .venv/Scripts/python.exe -X utf8 peak_study.py H1
 
 프로토콜: docs/PEAK_V3_PROTOCOL.md. 경제성보다 연구 본체 우선. 아래 과거 다음단계보다 이 기록이 우선한다.

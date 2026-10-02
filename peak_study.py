@@ -303,7 +303,7 @@ def write_hypothesis_report(name, decision, f):
 전체 예측과 불확실성 구간은 같은 폴더의 `predictions.csv.gz`, `bootstrap.json`에 있다.
 7월 결과로 판정을 바꾸지 않았다. 반복 사용된 과거 데이터이므로 독립 검증이나 배포 승인이 아니다.
 
-다음 작업: {next_step}. 실행: `.venv/Scripts/python.exe peak_study.py { {'H1':'H2','H2':'H3','H3':'summarize'}[name] }`.
+다음 작업: {next_step}. 실행: `.venv/Scripts/python.exe -X utf8 peak_study.py { {'H1':'H2','H2':'H3','H3':'summarize'}[name] }`.
 '''
     (ROOT / 'docs' / f'PEAK_V3_{name}_RESULTS.md').write_text(report, encoding='utf-8')
     update_status(f'{name}: {result}. 4~6월 MAE {a["mae"]:.6f}, 일최대 MAE {a["daily_peak_mae"]:.6f}, 피크일 재현율 {a["peak_day_recall"]:.2%}. 미충족: {", ".join(decision["failed_checks"]) or "없음"}. 다음: {next_step}.')
@@ -315,7 +315,7 @@ def update_status(message):
         old = path.read_text(encoding='utf-8')
         title, rest = old.split('\n', 1)
         path.write_text(title+'\n\n## 피크 개선 v3 최신 체크포인트 — 2026-10-02\n\n'+message+
-            '\n\n프로토콜: docs/PEAK_V3_PROTOCOL.md. 경제성보다 연구 본체 우선. 아래 과거 다음단계보다 이 기록이 우선한다.\n'+rest, encoding='utf-8')
+            '\n\n프로토콜: docs/PEAK_V3_PROTOCOL.md. 경제성보다 연구 본체 우선. 원격 업로드 상태는 docs/PEAK_V3_REMOTE_STATUS.md 참조. 아래 과거 다음단계보다 이 기록이 우선한다.\n'+rest, encoding='utf-8')
 
 
 if __name__ == '__main__':
