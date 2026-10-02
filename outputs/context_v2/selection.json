@@ -1,0 +1,5 @@
+{
+  "candidate": "B1_mixture",
+  "rule": "Apr-Jun pooled MAE within 2% minimum then daily peak MAE; naive eligible",
+  "status": "post-hoc exploration; July has been observed in prior research; no new independent test"
+}

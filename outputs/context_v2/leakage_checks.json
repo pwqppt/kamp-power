@@ -1,0 +1,6 @@
+{
+  "future_perturbation_invariant": true,
+  "checked_origin": "2021-06-14 16:00:00",
+  "source_end_assertions": "all new source selections <= origin",
+  "target_actual_columns_in_inputs": false
+}
