@@ -30,3 +30,7 @@ EXT-001~003은 사후 정책·비용 해석에 쓰이며 EXT-004는 달력 특�
 - EXT-001 재확인: 국가법령정보센터 제56조 표시 시행일2026-10-02. 야간22~06, 연장/야간50% 가산 구조를 추가노동 시나리오에만 사용. 시급13,000/16,000은 사용자 가정이며 공장인원 열에서 법적 사업장 규모를 추론하지 않는다.
 - EXT-004 보완: 설치 holidays0.105의 MIT LICENSE 확인(`outputs/research_v4/data_verification.json`). 2021년 전 기간의 공휴일 규칙을 발행일 당시 알려진 규칙과 완전히 대조하지 못했다. 특히 사후 대체공휴일 제도 변화가 시간상 누수 요인이 될 수 있어 독립운용 검증 전 재확인이 필요하다. 7월 이전 validation에서 기존 규칙 변동 여부도 보고서 한계로 남긴다.
 - EXT-005: KAMP 공식 과제·양식·서면평가표, 2026-09-22 수정 공지 https://www.kamp-ai.kr/contestNoticeDetail?CPT_NOTICE_SEQ=28 . 연구 요구와 제출 형식의 근거로만 사용. 예측 특징에 미사용. 원문 출처·해시 `docs/EVALUATION_TRACEABILITY.md`.
+
+## 최종 달력 대조 보완
+
+2021 월력요항의 발행일2020-06-16 및 달력 설명을 https://www.kasi.re.kr/publication/post/newsMaterial/28495 에서 확인했다. 2021 대체공휴일 확대의 시행 경위는 https://www.korea.kr/multi/visualNewsView.do?newsId=148891475 및 https://m.korea.kr/news/policyNewsView.do?newsId=148890227 에서 확인했다. 확대 영향은 8/16·10/4·10/11이며 4~7월 채택 검증에는 해당하지 않는다. 모든 달력 규칙의 발행 시점별 전체 구현 감사가 끝났다는 주장은 하지 않는다. 8~9월은 이미 본 역사적 테스트이며 독립 성능 주장의 근거로 쓰지 않는다. 정책 사실의 출처·링크만 인용하고 원문 파일은 재배포하지 않는다.

@@ -1,0 +1,141 @@
+RUN peak_study.py prepare
+{
+  "rows": 6168,
+  "columns": 18,
+  "days": 257,
+  "quarter_hours": 24672,
+  "start": "2021-01-01 00:00:00",
+  "end": "2021-09-15 00:00:00",
+  "sha256": "8f7af2e49366c93e1d6f5fdef4b5e350066c1792ac463c2c2886e370f4674830",
+  "repaired_rows": 48,
+  "repaired_dates": [
+    "2021-07-13",
+    "2021-07-15"
+  ],
+  "unique_day_patterns": 142,
+  "days_in_repeated_patterns": 160,
+  "repeated_extra_days": 115,
+  "largest_pattern_group": 15,
+  "missing": {
+    "풍속": 3,
+    "강수량": 1,
+    "공장인원": 17
+  },
+  "power_min": 0.0,
+  "power_max": 222.0,
+  "mean_column_max_difference": 0.5,
+  "personnel_range": [
+    0.0,
+    48.38636364
+  ],
+  "fractional_personnel": 3510,
+  "wage_column_values": [
+    1.5,
+    1.0
+  ],
+  "unit_status": "NOT DOCUMENTED: figures use source units; economic model is conditional on kW.",
+  "time_status": "ASSUMPTION: hour is interval-start hour; 15/30/45/60 are interval ends, Asia/Seoul.",
+  "repair_policy": "Infer hour from original row order; exclude entire repaired dates as targets and missing-mask their power history."
+}
+Prepared July diagnosis and origin-only B1 features.
+RUN peak_study.py reference
+reference 2021-03-01 22.50289407254738
+reference 2021-04-01 20.128959768906107
+reference 2021-05-01 22.644060153896138
+reference 2021-06-01 7.768407214315837
+reference 2021-07-01 10.552418143299022
+RUN peak_study.py H1
+H1 2021-04-01 20.220192040628376 18.7263174068753
+H1 2021-05-01 22.540728539961716 26.211377855444873
+H1 2021-06-01 8.38101164028976 16.777903870229206
+H1 2021-07-01 10.935968359514908 20.44161877143389
+RUN peak_study.py H2
+H2 2021-04-01 20.349059142516253 18.26443609912984
+H2 2021-05-01 22.67888760837579 26.38978220038065
+H2 2021-06-01 8.249191261804008 16.32250413576616
+H2 2021-07-01 10.887848782324575 20.561439691439777
+RUN peak_study.py H3
+H3 2021-04-01 20.128959768906107 18.119353840760308
+H3 2021-05-01 22.644060153896145 27.035274592608538
+H3 2021-06-01 7.768407214315837 14.588974795633536
+H3 2021-07-01 10.552418143299022 20.438269950573922
+RUN peak_study.py summarize
+Frozen selection: reference ; search stopped. Condition analysis complete.
+RUN peak_study.py simulate
+simulation 10 of 120
+simulation 20 of 120
+simulation 30 of 120
+simulation 40 of 120
+simulation 50 of 120
+simulation 60 of 120
+simulation 70 of 120
+simulation 80 of 120
+simulation 90 of 120
+simulation 100 of 120
+simulation 110 of 120
+simulation 120 of 120
+Simulation complete: 2880 scenario-days; all worsening cases preserved.
+RUN peak_report.py
+Report, mean-power metrics, paired simulation bootstrap, and figures generated.
+RUN check_peak_study.py
+PASS: future-source perturbation; future calibration labels; strict adoption; available candidate rows.
+RUN research_v4.py audit
+AUDIT {}
+RUN research_v4.py benchmark
+Ridge_F2 2021-04-01 51.618
+ExtraTrees_F2 2021-04-01 23.3629
+LGB_F0 2021-04-01 37.8705
+LGB_F1 2021-04-01 24.0539
+LGB_F2 2021-04-01 23.2521
+LGB_F3 2021-04-01 22.6523
+LGB_B1 2021-04-01 23.9197
+Mixture_B1 2021-04-01 20.8266
+Ridge_F2 2021-05-01 29.0581
+ExtraTrees_F2 2021-05-01 22.0303
+LGB_F0 2021-05-01 25.8225
+LGB_F1 2021-05-01 24.0803
+LGB_F2 2021-05-01 25.6422
+LGB_F3 2021-05-01 26.7644
+LGB_B1 2021-05-01 24.7709
+Mixture_B1 2021-05-01 22.9781
+Ridge_F2 2021-06-01 14.4671
+ExtraTrees_F2 2021-06-01 13.3322
+LGB_F0 2021-06-01 40.7802
+LGB_F1 2021-06-01 19.4575
+LGB_F2 2021-06-01 11.7225
+LGB_F3 2021-06-01 12.7595
+LGB_B1 2021-06-01 11.0448
+Mixture_B1 2021-06-01 8.09
+RUN research_v4.py diagnose
+Extended conditions and two dependence-aware uncertainty summaries saved.
+RUN research_v4.py production
+Conditional production ledger checked, not a field production guarantee.
+RUN peak_v4.py H4
+H4 2021-04-01 {'n': 2880, 'days': 30, 'mae': 20.087201313134784, 'rmse': 35.23267957890273, 'wape': 0.21237023931774213, 'daily_peak_mae': 22.682106283874692, 'peak_underprediction': 16.799370891200315, 'peak_day_recall': 0.25, 'alarm_precision': 0.75, 'false_alarm_days': 1, 'daily_mean_mae': 14.72091739082745, 'interval_tp': 1, 'interval_fn': 54, 'interval_fp': 26, 'interval_tn': 2799, 'interval_recall': 0.01818181818181818, 'interval_precision': 0.037037037037037035, 'interval_f1': 0.024390243902439025, 'interval_false_positive_rate': 0.009203539823008849, 'interval_peak_rate': 0.019097222222222224, 'day_tp': 3, 'day_fn': 9, 'day_fp': 1, 'day_tn': 17, 'day_recall': 0.25, 'day_precision': 0.75, 'day_f1': 0.375, 'day_false_positive_rate': 0.05555555555555555, 'day_peak_rate': 0.4}
+H4 2021-05-01 {'n': 2976, 'days': 31, 'mae': 21.57211134195719, 'rmse': 42.22196253580258, 'wape': 0.2510101358442632, 'daily_peak_mae': 25.857441933135796, 'peak_underprediction': 15.835477982290055, 'peak_day_recall': 0.0, 'alarm_precision': 0.0, 'false_alarm_days': 3, 'daily_mean_mae': 16.854251732327217, 'interval_tp': 0, 'interval_fn': 53, 'interval_fp': 15, 'interval_tn': 2908, 'interval_recall': 0.0, 'interval_precision': 0.0, 'interval_f1': 0.0, 'interval_false_positive_rate': 0.005131713992473486, 'interval_peak_rate': 0.017809139784946238, 'day_tp': 0, 'day_fn': 11, 'day_fp': 3, 'day_tn': 17, 'day_recall': 0.0, 'day_precision': 0.0, 'day_f1': 0.0, 'day_false_positive_rate': 0.15, 'day_peak_rate': 0.3548387096774194}
+H4 2021-06-01 {'n': 2880, 'days': 30, 'mae': 6.767415615218235, 'rmse': 9.614174774265754, 'wape': 0.06579311278188364, 'daily_peak_mae': 13.82057256484791, 'peak_underprediction': 13.774418826019296, 'peak_day_recall': 0.5238095238095238, 'alarm_precision': 0.9166666666666666, 'false_alarm_days': 1, 'daily_mean_mae': 3.89628855713749, 'interval_tp': 76, 'interval_fn': 192, 'interval_fp': 28, 'interval_tn': 2584, 'interval_recall': 0.2835820895522388, 'interval_precision': 0.7307692307692307, 'interval_f1': 0.40860215053763443, 'interval_false_positive_rate': 0.010719754977029096, 'interval_peak_rate': 0.09305555555555556, 'day_tp': 11, 'day_fn': 10, 'day_fp': 1, 'day_tn': 8, 'day_recall': 0.5238095238095238, 'day_precision': 0.9166666666666666, 'day_f1': 0.6666666666666666, 'day_false_positive_rate': 0.1111111111111111, 'day_peak_rate': 0.7}
+H4: 미채택. 4~6월 MAE 16.201912, 일최대 MAE 20.842429, 피크일 재현율 31.82%.
+RUN peak_v4.py H5
+H5 2021-04-01 {'n': 2880, 'days': 30, 'mae': 40.34369335795794, 'rmse': 60.0156523289556, 'wape': 0.4265302905979614, 'daily_peak_mae': 53.1597046715334, 'peak_underprediction': 31.91600413312073, 'peak_day_recall': 0.16666666666666666, 'alarm_precision': 0.6666666666666666, 'false_alarm_days': 1, 'daily_mean_mae': 34.72655327508712, 'interval_tp': 3, 'interval_fn': 52, 'interval_fp': 11, 'interval_tn': 2814, 'interval_recall': 0.05454545454545454, 'interval_precision': 0.21428571428571427, 'interval_f1': 0.08695652173913043, 'interval_false_positive_rate': 0.0038938053097345134, 'interval_peak_rate': 0.019097222222222224, 'day_tp': 2, 'day_fn': 10, 'day_fp': 1, 'day_tn': 17, 'day_recall': 0.16666666666666666, 'day_precision': 0.6666666666666666, 'day_f1': 0.26666666666666666, 'day_false_positive_rate': 0.05555555555555555, 'day_peak_rate': 0.4}
+H5 2021-05-01 {'n': 2976, 'days': 31, 'mae': 40.287873098451584, 'rmse': 59.65629207046325, 'wape': 0.46878417874887846, 'daily_peak_mae': 40.61617345638769, 'peak_underprediction': 15.669519310782782, 'peak_day_recall': 0.36363636363636365, 'alarm_precision': 0.2857142857142857, 'false_alarm_days': 10, 'daily_mean_mae': 33.027912384984674, 'interval_tp': 11, 'interval_fn': 42, 'interval_fp': 190, 'interval_tn': 2733, 'interval_recall': 0.20754716981132076, 'interval_precision': 0.05472636815920398, 'interval_f1': 0.08661417322834646, 'interval_false_positive_rate': 0.06500171057133082, 'interval_peak_rate': 0.017809139784946238, 'day_tp': 4, 'day_fn': 7, 'day_fp': 10, 'day_tn': 10, 'day_recall': 0.36363636363636365, 'day_precision': 0.2857142857142857, 'day_f1': 0.32, 'day_false_positive_rate': 0.5, 'day_peak_rate': 0.3548387096774194}
+H5 2021-06-01 {'n': 2880, 'days': 30, 'mae': 18.84798852398857, 'rmse': 36.78386032349986, 'wape': 0.18324097486813493, 'daily_peak_mae': 31.309435325273924, 'peak_underprediction': 29.262365398122732, 'peak_day_recall': 0.8095238095238095, 'alarm_precision': 1.0, 'false_alarm_days': 0, 'daily_mean_mae': 16.102784517306937, 'interval_tp': 144, 'interval_fn': 124, 'interval_fp': 79, 'interval_tn': 2533, 'interval_recall': 0.5373134328358209, 'interval_precision': 0.6457399103139013, 'interval_f1': 0.5865580448065173, 'interval_false_positive_rate': 0.03024502297090352, 'interval_peak_rate': 0.09305555555555556, 'day_tp': 17, 'day_fn': 4, 'day_fp': 0, 'day_tn': 9, 'day_recall': 0.8095238095238095, 'day_precision': 1.0, 'day_f1': 0.8947368421052632, 'day_false_positive_rate': 0.0, 'day_peak_rate': 0.7}
+H5: 미채택. 4~6월 MAE 33.238182, 일최대 MAE 41.683248, 피크일 재현율 52.27%.
+RUN peak_head.py
+H6 별도 일최대 출력 탐색 채택: 4~6월 일최대 MAE 17.771216, 재현율 52.27%. 15분 곡선 불변; 96구간 모델 개선으로 표현하지 않는다.
+ period reference      mean       low     high
+Apr-Jun      pred -2.221568 -4.579718 0.239899
+Apr-Jun     naive -1.151861 -3.778259 0.991420
+   July      pred -2.955241 -7.559314 2.954927
+   July     naive  0.862339 -4.958400 5.711780
+RUN economics_v4.py
+  month  days  complete_month  residual_peak_assumption  original_eligible_peak  adjusted_eligible_peak  billing_peak_before  billing_peak_after  demand_savings  energy_savings  electric_savings_before_tax  moved_days
+2021-04    30            True                     200.0                   199.0              243.272984                200.0          243.272984  -312430.941819     3636.802162               -308794.139657          30
+2021-04    30            True                     250.0                   199.0              243.272984                250.0          250.000000        0.000000     3636.802162                  3636.802162          30
+2021-05    31            True                     200.0                   199.0              196.814892                200.0          200.000000        0.000000     3298.369591                  3298.369591          31
+2021-05    31            True                     250.0                   199.0              196.814892                250.0          250.000000        0.000000     3298.369591                  3298.369591          31
+2021-06    30            True                     200.0                   222.0              200.563507                222.0          200.563507   154771.482425    10657.033266                165428.515691          30
+2021-06    30            True                     250.0                   222.0              200.563507                250.0          250.000000        0.000000    10657.033266                 10657.033266          30
+2021-07    29           False                     200.0                   222.0              209.658433                222.0          209.658433    89106.115509     9318.372867                 98424.488376          29
+2021-07    29           False                     250.0                   222.0              209.658433                250.0          250.000000        0.000000     9318.372867                  9318.372867          29
+RUN final_evidence.py
+Historical test file exported: 45 days / 4320 intervals. No reselection.

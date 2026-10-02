@@ -1,0 +1,25 @@
+{
+  "manifest_file_count": 135,
+  "text_files_blind_scanned": 133,
+  "executed_source_files_identical_to_final": [
+    "audit.py",
+    "check_peak_study.py",
+    "context_features.py",
+    "continue_research.py",
+    "economics_v4.py",
+    "experiment.py",
+    "final_evidence.py",
+    "peak_head.py",
+    "peak_report.py",
+    "peak_study.py",
+    "peak_v4.py",
+    "research_v4.py",
+    "residual_experiment.py",
+    "run_submission.py"
+  ],
+  "executed_notebook_included": true,
+  "zip_integrity_passed": true,
+  "blind_identifier_scan_passed": true,
+  "zip_sha256": "5fcad9226cacdc6a4a5c202128c479926510072f648227e16de8dd1691caa7ef",
+  "scope": "Known account names/local-user paths/email identifiers; official public institutions are source citations, not participant affiliations."
+}

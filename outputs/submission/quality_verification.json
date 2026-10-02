@@ -1,0 +1,43 @@
+{
+  "report_pages": 18,
+  "slides": 13,
+  "all_report_pages_visually_reviewed": true,
+  "all_deck_slides_visually_reviewed": true,
+  "unchanged_slide_renders_from_first_review": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+  ],
+  "changed_slide_6_reviewed": true,
+  "pdf_slide_embedded_pixels_exactly_equal": true,
+  "pdf_slide_render_pixel_mae_max": 3.374757265946502,
+  "rasterizer_difference": "Poppler resampling/antialiasing; source PDF image pixels exactly match PPTX renders.",
+  "report_korean_legible": true,
+  "no_observed_overlap_or_clipping": true,
+  "presentation_package_findings": 0,
+  "presentation_geometry_findings": 0,
+  "native_chart_count": 2,
+  "native_chart_workbook_cache_verified": true,
+  "native_powerpoint_runtime_verified": false,
+  "blind_identifiers_scan_passed": true,
+  "font_exception": "Official Human Myeongjo absent; report uses HY Sin Myeongjo 14pt,160% leading.",
+  "remaining_formal_requirements": [
+    "Real participant information/signatures",
+    "Actual survey completion screenshot",
+    "Official font finalization"
+  ],
+  "files": {
+    "result_report_reviewed.pdf": "a7a1709512e4fa635c65447d0936eef0b0a85235ec50c66a3420b0621fdf27c6",
+    "presentation_reviewed.pptx": "bfb5bb09c4e8d3a1349da26acf7abf09247e9b0f4e22e3192561eae272eca0e9",
+    "presentation_reviewed.pdf": "4015a7024c68ff794a4d25db2e2fa9cd344497e91d816bf0bacf03b97499ea19"
+  }
+}
