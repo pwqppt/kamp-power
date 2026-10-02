@@ -18,3 +18,4 @@ outputs/validation_predictions.csv.gz
 outputs/context_v2/july_predictions.csv.gz
 assets/NanumGothic-Regular.ttf
 CHECKSUMS.json
+work/

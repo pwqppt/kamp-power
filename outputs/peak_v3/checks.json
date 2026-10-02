@@ -1,0 +1,58 @@
+{
+  "source_perturbation": [
+    {
+      "day": "2021-06-15",
+      "origin": "2021-06-14 16:00:00",
+      "changed_future_actuals": true,
+      "all_B1_inputs_unchanged": true,
+      "feature_count": 43
+    },
+    {
+      "day": "2021-07-20",
+      "origin": "2021-07-19 16:00:00",
+      "changed_future_actuals": true,
+      "all_B1_inputs_unchanged": true,
+      "feature_count": 43
+    }
+  ],
+  "future_calibration_labels_invariant": [
+    {
+      "risk_n": 367,
+      "risk_days": 19,
+      "latest_calibration_label": "2021-03-31 00:00:00",
+      "origin": "2021-03-31 16:00:00",
+      "raw_mean_residual": -3.541686881706609,
+      "correction": 0.0,
+      "cap": 17.8
+    },
+    {
+      "risk_n": 523,
+      "risk_days": 31,
+      "latest_calibration_label": "2021-04-30 00:00:00",
+      "origin": "2021-04-30 16:00:00",
+      "raw_mean_residual": -13.479293148323894,
+      "correction": 0.0,
+      "cap": 17.664999999999964
+    },
+    {
+      "risk_n": 617,
+      "risk_days": 44,
+      "latest_calibration_label": "2021-05-31 00:00:00",
+      "origin": "2021-05-31 16:00:00",
+      "raw_mean_residual": -18.677778456026328,
+      "correction": 0.0,
+      "cap": 17.400000000000002
+    },
+    {
+      "risk_n": 865,
+      "risk_days": 62,
+      "latest_calibration_label": "2021-06-30 00:00:00",
+      "origin": "2021-06-30 16:00:00",
+      "raw_mean_residual": -11.939241023794677,
+      "correction": 0.0,
+      "cap": 17.6
+    }
+  ],
+  "gate_rejects_no_improvement_and_large_errors": true,
+  "candidate_metrics_and_time_order_checked": []
+}

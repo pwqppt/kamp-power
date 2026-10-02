@@ -1,0 +1,19 @@
+{
+  "historical_exact_reproduction": false,
+  "historical_July_prediction_max_abs_difference": 3.9831515234754846,
+  "current_original_function_vs_wrapper_exact_match": true,
+  "environment": {
+    "python": "3.13.1",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "packages": {
+      "numpy": "2.3.5",
+      "scipy": "1.17.0",
+      "pandas": "2.2.3",
+      "lightgbm": "4.7.0",
+      "scikit-learn": "1.8.0",
+      "holidays": "0.105"
+    }
+  },
+  "policy": "Same current-environment original-model reference for all candidates. Preserve historical outputs. Difference not attributed to a specific cause.",
+  "August_September_evaluated": false
+}

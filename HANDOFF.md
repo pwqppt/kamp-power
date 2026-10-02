@@ -1,5 +1,11 @@
 # 다음 작업자에게
 
+## 피크 개선 v3 최신 체크포인트 — 2026-10-02
+
+7월 기온·생산기록·시간대 및 피크 크기/시각 진단 완료. 세 가설·채택 규칙 사전 고정. 현재 환경 원래 함수/비교 함수 출력 일치, 역사 저장값은 완전 재현되지 않아 차이를 historical_drift.csv에 기록. 미래 원자료/보정 라벨 교란 검사 통과. 다음: H1 고정 가중학습 실행. .venv/Scripts/python.exe -X utf8 peak_study.py H1
+
+프로토콜: docs/PEAK_V3_PROTOCOL.md. 경제성보다 연구 본체 우선. 아래 과거 다음단계보다 이 기록이 우선한다.
+
 ## 최신 작업 — 컨텍스트 피처·상태 혼합 개선
 
 추가 완료: `residual_experiment.py`와 `adaptive_reference.py`, `adaptive_summary.py` 실행. 일괄 잔차 보정은 미채택, 예측상태 0.5 기준 결합은 4~6월 선택 후 7월 MAE 10.607(기준 12.177). 피크 지표는 아직 기준보다 나쁘다. docs/ADAPTIVE_RESULTS.md 및 outputs/adaptive_v2가 가장 최신. 다음은 피크 오차 분석과 개선 검증 프로토콜이며 아래 residual 후보 설계 안내는 이미 실행된 과거 내용이다. 실험 브랜치는 `experiments/context-features-v2`, main에는 인계 포인터만 갱신한다.
