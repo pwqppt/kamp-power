@@ -1,0 +1,24 @@
+{
+  "cutoffs_Apr_May": {
+    "0.25": 0.06957870910288509,
+    "0.5": 0.13869554222780203,
+    "0.75": 0.29431774200743843
+  },
+  "selected": {
+    "AI": {
+      "name": "always",
+      "peak_only": false,
+      "limit": null
+    },
+    "SeasonalNaive": {
+      "name": "never",
+      "peak_only": false,
+      "limit": null
+    }
+  },
+  "selection_period": "June only",
+  "allowed_worsening_rate_executed": 0.1,
+  "fraction": 0.1,
+  "window_minutes": 60,
+  "status": "post-hoc exploratory, not fresh independent validation"
+}

@@ -1,5 +1,11 @@
 # 다음 작업자에게
 
+## 최신 체크포인트 — 2026-10-02 보류 정책
+
+`python run_stage.py hold_policy` 성공. 4~5월 예측 간 불일치 경계 설정→6월 9개 후보 선정→고정 정책 7월/기존 테스트 적용을 실행했다. AI는 항상실행, 기준예측은 항상보류가 선택됐다. AI 악화율은 6월 6.7%에서 7월 17.2%, 테스트 재사용 20%로 상승하므로 보류 정책의 안전성 개선을 확보하지 못했다. docs/HOLD_POLICY_PROTOCOL.md, docs/HOLD_POLICY_RESULTS.md, outputs/hold_policy 참조. 기존 모델을 재선택하지 않았다.
+
+다음은 docs/NEXT_STAGE.md에 따른 CP04B 공식 요금 근거 확인이다. 정책 미채택 결과를 요금 절감액으로 덮지 않는다. 단위·계약·실제 이동 가능성이 미확인이므로 조건부 경제성만 허용한다. 이 최신 기록이 아래 과거 다음단계 안내보다 우선한다.
+
 ## 최신 실행 체크포인트 — 2026-10-02 후속
 
 공식 배점 15/40/15/10/10/10을 docs/RUBRIC_AND_EXTENSION.md에 반영했다. `.venv`를 만들고 고정 requirements를 설치했다. `continue_research.py restore/conditions/simulate` 순서로 기존 모델 복원·조건분석·조건부 이동 실험을 실행했다. 예측 점수는 기존 기록과 1e-7 이내 일치. `check_extension.py`, `extension_figures.py`, `run_stage.py check` 통과; PNG 3개 직접 검토 완료. 상세 수치·한계는 docs/EXTENSION_RESULTS.md. 새 실험은 outputs/extension에 별도 보존했다.

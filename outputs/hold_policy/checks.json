@@ -1,0 +1,31 @@
+{
+  "folds": [
+    {
+      "fold": "2021-04-01",
+      "last_label": "2021-03-31 00:00:00",
+      "origin": "2021-03-31 16:00:00",
+      "days": 30
+    },
+    {
+      "fold": "2021-05-01",
+      "last_label": "2021-04-30 00:00:00",
+      "origin": "2021-04-30 16:00:00",
+      "days": 31
+    },
+    {
+      "fold": "2021-06-01",
+      "last_label": "2021-05-31 00:00:00",
+      "origin": "2021-05-31 16:00:00",
+      "days": 30
+    },
+    {
+      "fold": "2021-07-01",
+      "last_label": "2021-06-30 00:00:00",
+      "origin": "2021-06-30 16:00:00",
+      "days": 29
+    }
+  ],
+  "later_outcome_independence": true,
+  "replay_matches_previous": true,
+  "limitations": "Architecture selected Apr-Jun; protocol proposed after test inspection; July previously used for calibration. No new independent test."
+}
