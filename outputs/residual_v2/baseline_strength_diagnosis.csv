@@ -1,0 +1,4 @@
+dimension,condition,n,days,naive_mae,exact_weekly_value_rate
+zero_production,False,1764,24,16.28061224489796,0.026643990929705215
+zero_production,True,1020,25,5.080392156862745,0.19411764705882353
+seen_pattern,False,2784,29,12.177083333333334,0.08800287356321838

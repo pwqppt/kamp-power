@@ -1,0 +1,9 @@
+{
+  "July_MAE_difference_adaptive_minus_naive": -1.570138430178078,
+  "day_bootstrap_95": [
+    -8.427109315827014,
+    2.524004091639346
+  ],
+  "days": 29,
+  "limitations": "Post-hoc exploration; previously viewed July; repeated/serial patterns; no multiplicity adjustment."
+}

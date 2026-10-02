@@ -15,5 +15,6 @@ outputs/final_model.joblib
 outputs/test_predictions.csv
 outputs/test_predictions_diagnostics.csv
 outputs/validation_predictions.csv.gz
+outputs/context_v2/july_predictions.csv.gz
 assets/NanumGothic-Regular.ttf
 CHECKSUMS.json
