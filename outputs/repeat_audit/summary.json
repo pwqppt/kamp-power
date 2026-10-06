@@ -1,0 +1,85 @@
+{
+  "raw_sha256": "8f7af2e49366c93e1d6f5fdef4b5e350066c1792ac463c2c2886e370f4674830",
+  "days": 257,
+  "unique_curves": 142,
+  "repeated_groups": 45,
+  "repeated_days": 160,
+  "extra_duplicate_days": 115,
+  "duplicate_day_pairs": 302,
+  "multi_weekday_groups": 38,
+  "multi_month_groups": 44,
+  "all_six_covariates_identical_pairs": 0,
+  "covariate_identical_groups": {
+    "생산량": 5,
+    "기온": 0,
+    "풍속": 0,
+    "습도": 0,
+    "강수량": 10,
+    "공장인원": 5
+  },
+  "covariate_identical_pairs": {
+    "생산량": 124,
+    "기온": 0,
+    "풍속": 0,
+    "습도": 0,
+    "강수량": 126,
+    "공장인원": 124
+  },
+  "calendar_lag_matches": [
+    {
+      "lag_days": 1,
+      "comparable_day_pairs": 256,
+      "equal_pairs": 15,
+      "fraction": 0.05859375
+    },
+    {
+      "lag_days": 2,
+      "comparable_day_pairs": 255,
+      "equal_pairs": 5,
+      "fraction": 0.0196078431372549
+    },
+    {
+      "lag_days": 7,
+      "comparable_day_pairs": 250,
+      "equal_pairs": 22,
+      "fraction": 0.088
+    },
+    {
+      "lag_days": 14,
+      "comparable_day_pairs": 243,
+      "equal_pairs": 13,
+      "fraction": 0.053497942386831275
+    },
+    {
+      "lag_days": 28,
+      "comparable_day_pairs": 229,
+      "equal_pairs": 23,
+      "fraction": 0.10043668122270742
+    }
+  ],
+  "provenance": "unknown; repetition alone does not prove augmentation",
+  "training_daily_curve_coverage": [
+    {
+      "month": 4,
+      "complete_training_days": 82,
+      "unique_training_daily_curves": 33
+    },
+    {
+      "month": 5,
+      "complete_training_days": 112,
+      "unique_training_daily_curves": 48
+    },
+    {
+      "month": 6,
+      "complete_training_days": 143,
+      "unique_training_daily_curves": 61
+    },
+    {
+      "month": 7,
+      "complete_training_days": 173,
+      "unique_training_daily_curves": 66
+    }
+  ],
+  "seen_status": "full 96-value vectors among actual training targets (Jan8 start, strict monthly cutoff); uses future target-day actuals for retrospective diagnosis only, never a model input or live selection rule",
+  "time_errors": "raw profiles kept for forensic duplicate counts; bad-hour days already excluded from prediction targets"
+}
