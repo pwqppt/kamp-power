@@ -1,0 +1,11 @@
+{
+  "purpose": "ex ante observable scope audit, exploratory after old results; no confirmation",
+  "candidate_scopes": [
+    "clean_history",
+    "production_positive_clean",
+    "approaching_high_load_clean"
+  ],
+  "approaching_definition": "training q75 <= current <= training q95, all recent 8 power values present, production record >0",
+  "target_horizons": "45..120min (8 quarter slots remain full evaluation comparator)",
+  "selection": "no automatic selection by July accuracy; report coverage and peak counts; no prod0 easy-case focus"
+}

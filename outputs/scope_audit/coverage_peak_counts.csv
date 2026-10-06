@@ -1,0 +1,17 @@
+month,scope,origins,coverage,peak_windows,new_peak_windows
+4,all,720,1.0,52,48
+4,clean_history,720,1.0,52,48
+4,production_positive_clean,469,0.6513888888888889,45,41
+4,approaching_high_load_clean,176,0.24444444444444444,21,21
+5,all,744,1.0,47,40
+5,clean_history,744,1.0,47,40
+5,production_positive_clean,436,0.5860215053763441,38,31
+5,approaching_high_load_clean,147,0.1975806451612903,16,16
+6,all,720,1.0,139,89
+6,clean_history,720,1.0,139,89
+6,production_positive_clean,498,0.6916666666666667,128,78
+6,approaching_high_load_clean,170,0.2361111111111111,53,53
+7,all,693,1.0,200,99
+7,clean_history,689,0.9942279942279942,200,99
+7,production_positive_clean,435,0.6277056277056277,179,79
+7,approaching_high_load_clean,98,0.1414141414141414,52,52
