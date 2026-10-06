@@ -1,0 +1,23 @@
+{
+  "monthly_to_pooled_MAE": "PASS",
+  "equal_rows_across_candidates": "PASS",
+  "pre_July_selection_file": "PASS",
+  "source_manifest_checks": {
+    "future_input_perturbation": "PASS",
+    "complete_eight_targets": "PASS",
+    "target_after_origin": "PASS",
+    "feature_count": {
+      "F0": 15,
+      "F1": 32,
+      "F2": 48
+    },
+    "n_origins": 4869,
+    "forecast_design": "pooled direct model with horizon feature",
+    "cat_missing": "constant -999 plus missing indicators, training fitted",
+    "delay_minutes": 0
+  },
+  "training_runs": 72,
+  "stress_predictions": 48,
+  "note": "72 fits = 9 inputs x 4 months x regression/classification; prior aggregation failure repaired from saved predictions without refitting",
+  "figure_review": "Korean rendering, value labels, axis titles and margins visually inspected; PASS"
+}

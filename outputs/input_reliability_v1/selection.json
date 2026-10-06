@@ -1,0 +1,29 @@
+{
+  "regression": "F0",
+  "classification_45_120": "F1",
+  "validation_MAE": {
+    "F0": 9.22123486638164,
+    "F1": 9.768908003367182,
+    "all": 9.705513739695224,
+    "humidity": 9.739783559742786,
+    "personnel": 9.708630747079033,
+    "production": 9.925661231925286,
+    "recent": 9.413277672246966,
+    "temperature": 9.668148283295567,
+    "weather": 9.687177424629654
+  },
+  "validation_AP": {
+    "F0": 0.5398772965507708,
+    "F1": 0.7366412418591712,
+    "all": 0.720173282534883,
+    "humidity": 0.7260331833180135,
+    "personnel": 0.7397475137247659,
+    "production": 0.7439682562965866,
+    "recent": 0.45903563131830316,
+    "temperature": 0.7422346069688884,
+    "weather": 0.7241377937615575
+  },
+  "selection_rule": "AprJun: regression within1% minimum pooledMAE then minimal feature count; classification within1% maximum pooledAP then minimal feature count",
+  "frozen_before_July": true,
+  "independent_test": false
+}
