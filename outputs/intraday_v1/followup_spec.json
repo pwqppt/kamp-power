@@ -1,0 +1,29 @@
+{
+  "classification_features": [
+    "F0",
+    "F2"
+  ],
+  "calibration_days": 28,
+  "false_positive_rate_target": 0.05,
+  "classifier_refit_after_calibration": false,
+  "delay_minutes": 60,
+  "job_ready_minutes": 30,
+  "job_extra_delay_minutes": [
+    0,
+    30,
+    60
+  ],
+  "job_duration_minutes": 30,
+  "job_arrival_hours": [
+    6,
+    9,
+    12,
+    15,
+    18
+  ],
+  "job_amplitude_fraction_training_q95": [
+    0.05,
+    0.1
+  ],
+  "status": "prespecified before follow-up results"
+}

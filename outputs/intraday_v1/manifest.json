@@ -1,0 +1,61 @@
+{
+  "parameters": {
+    "ridge": {
+      "alpha": 10.0
+    },
+    "lgb": {
+      "n_estimators": 300,
+      "num_leaves": 15,
+      "learning_rate": 0.05,
+      "min_child_samples": 80,
+      "reg_lambda": 5,
+      "random_state": 42,
+      "n_jobs": 2,
+      "verbosity": -1,
+      "objective": "regression"
+    },
+    "cat": {
+      "iterations": 300,
+      "depth": 5,
+      "learning_rate": 0.05,
+      "l2_leaf_reg": 5,
+      "loss_function": "RMSE",
+      "random_seed": 42,
+      "thread_count": 2,
+      "verbose": false,
+      "allow_writing_files": false
+    }
+  },
+  "checks": {
+    "future_input_perturbation": "PASS",
+    "complete_eight_targets": "PASS",
+    "target_after_origin": "PASS",
+    "feature_count": {
+      "F0": 15,
+      "F1": 32,
+      "F2": 48
+    },
+    "n_origins": 4869,
+    "forecast_design": "pooled direct model with horizon feature",
+    "cat_missing": "constant -999 plus missing indicators, training fitted",
+    "delay_minutes": 0
+  },
+  "audit": {
+    "sha256": "8f7af2e49366c93e1d6f5fdef4b5e350066c1792ac463c2c2886e370f4674830",
+    "raw_rows": 6168,
+    "invalid_hour_rows": 48,
+    "excluded_dates": [
+      "2021-07-13",
+      "2021-07-15"
+    ]
+  },
+  "python": "3.12.14",
+  "versions": {
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "scikit-learn": "1.8.0",
+    "lightgbm": "4.7.0",
+    "catboost": "1.2.10"
+  },
+  "status": "regression/followup/sensitivity/figures complete; alarm selection and official report integration pending"
+}

@@ -1,0 +1,20 @@
+[
+  {
+    "figure": "01_forecast_and_peak",
+    "missing_glyphs": 0,
+    "figure_legend_outside_axes": true,
+    "manual_render_review": "PASS: Korean, axes, legend and footnotes inspected"
+  },
+  {
+    "figure": "02_horizon_errors",
+    "missing_glyphs": 0,
+    "figure_legend_outside_axes": true,
+    "manual_render_review": "PASS: Korean, axes, legend and footnotes inspected"
+  },
+  {
+    "figure": "03_peak_day",
+    "missing_glyphs": 0,
+    "figure_legend_outside_axes": true,
+    "manual_render_review": "PASS: Korean, axes, legend and footnotes inspected"
+  }
+]
