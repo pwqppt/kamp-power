@@ -1,0 +1,18 @@
+{
+  "status": "complete",
+  "fixed_threshold": 178.0,
+  "threshold_reference_start": "2021-01-01",
+  "threshold_reference_end_exclusive": "2021-04-01 00:00:00",
+  "reference_n": 8639,
+  "raw_sha256": "8f7af2e49366c93e1d6f5fdef4b5e350066c1792ac463c2c2886e370f4674830",
+  "threshold_equal_across_all_classifier_rows": "PASS",
+  "single_snapshot_future_perturbation": "PASS",
+  "classifier_model_reload": "PASS",
+  "regression_MAE_RMSE_reproduction": "PASS rtol=atol=1e-7",
+  "regression_model": "lgb_F0",
+  "classification_model": "F0 frozen",
+  "July_reused": true,
+  "daily_peak_is_rolling_reconstruction_not_day_ahead": true,
+  "no_preparation_time": true,
+  "new_external_data": false
+}

@@ -1,0 +1,10 @@
+{
+  "model": "F0",
+  "validation_AP": {
+    "F0": 0.6674559485975851,
+    "F1": 0.6780513687193634
+  },
+  "rule": "F0 frozen from previous experiments; threshold-only study, no new feature selection",
+  "frozen_before_July": true,
+  "independent_test": false
+}

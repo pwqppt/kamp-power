@@ -1,0 +1,2 @@
+hour,dow,month,lag0,lag1,lag2,lag3,lag4,lag5,lag6,lag7,day,week,day_early_max,day_window_max,week_early_max,week_window_max,threshold_headroom
+7,3,7,112.0,115.0,104.0,110.0,114.0,99.0,77.0,82.0,116.0,120.0,125.0,193.0,136.0,188.0,0.3707865168539326
