@@ -1,0 +1,30 @@
+{
+  "status": "complete",
+  "raw_sha256": "8f7af2e49366c93e1d6f5fdef4b5e350066c1792ac463c2c2886e370f4674830",
+  "saved_probability_reproduction": "PASS",
+  "monthly005_warning_reproduction": "PASS",
+  "causal_label_maturity": "PASS",
+  "future_label_score_poisoning": "PASS",
+  "model_and_probability_calibration_frozen": true,
+  "high_load_threshold_fixed_per_month": true,
+  "no_preparation_time": true,
+  "July_reused": true,
+  "alpha_targets": [
+    0.01,
+    0.05
+  ],
+  "development_success_rule": {
+    "0.01": {
+      "pooled_Pareto": false,
+      "no_month_recall_drop_over5pp": false,
+      "passes": false
+    },
+    "0.05": {
+      "pooled_Pareto": false,
+      "no_month_recall_drop_over5pp": false,
+      "passes": false
+    }
+  },
+  "policy_selected": false,
+  "new_external_data": false
+}
