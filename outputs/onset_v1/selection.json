@@ -1,0 +1,10 @@
+{
+  "model": "F1",
+  "validation_AP": {
+    "F0": 0.7189584730631571,
+    "F1": 0.7406957436874264
+  },
+  "rule": "AprJun AP within1% best, simplest features",
+  "frozen_before_July": true,
+  "independent_test": false
+}

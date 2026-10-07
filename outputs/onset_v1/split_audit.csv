@@ -1,0 +1,5 @@
+month,threshold,fit_n,fit_positive,probability_calibration_n,alarm_calibration_n,eligible_test,all_valid_test
+4,178.0,1247,88,317,309,702,719
+5,176.0,1892,159,320,334,727,743
+6,175.0,2606,189,322,333,654,719
+7,176.0,3318,232,319,297,571,693
