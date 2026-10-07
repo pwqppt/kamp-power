@@ -1,0 +1,63 @@
+name: KAMP onset v2 weekly threshold
+on:
+  push:
+    branches: ["experiments/intraday-v1"]
+    paths:
+      - "onset_v2_weekly.py"
+      - ".github/workflows/onset-v2-weekly.yml"
+      - "docs/ONSET_V2_WEEKLY_PROTOCOL.md"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: kamp-onset-v2-research
+  cancel-in-progress: false
+jobs:
+  train:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements-intraday.txt
+      - name: Install fixed research environment
+        run: python -m pip install -r requirements-intraday.txt
+      - name: Check syntax and original data
+        run: |
+          python -m py_compile onset_v2.py onset_v2_weekly.py
+          python run_stage.py check
+      - name: Train and evaluate full-horizon onset model
+        run: python -u onset_v2.py
+      - name: Verify and write report
+        run: |
+          python -u onset_v2_weekly.py
+      - name: Keep complete experiment artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kamp-onset-v2-weekly
+          path: |
+            outputs/onset_v2_weekly/
+            figures/onset_v2_weekly/
+            docs/ONSET_V2_WEEKLY_RESULTS.md
+          retention-days: 7
+          if-no-files-found: warn
+      - name: Commit successful research checkpoint
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          python - <<'PY'
+          import json, subprocess
+          from pathlib import Path
+          out = Path("outputs/onset_v2_weekly")
+          paths = [str(p) for p in out.glob("*.csv") if p.name != "predictions.csv"]
+          paths += [str(p) for p in out.glob("*.json")]
+          paths += [str(p) for p in Path("figures/onset_v2_weekly").glob("*") if p.suffix in [".png", ".svg"]]
+          paths += ["docs/ONSET_V2_WEEKLY_RESULTS.md", "PROJECT_STATUS.md", "HANDOFF.md"]
+          subprocess.run(["git", "add", *paths], check=True)
+          PY
+          git commit -m "Complete causal weekly threshold comparison checkpoint"
+          git push origin HEAD:experiments/intraday-v1
