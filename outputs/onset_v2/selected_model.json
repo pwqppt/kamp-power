@@ -1,0 +1,37 @@
+{
+  "features": [
+    "hour",
+    "dow",
+    "month",
+    "lag0",
+    "lag1",
+    "lag2",
+    "lag3",
+    "lag4",
+    "lag5",
+    "lag6",
+    "lag7",
+    "day",
+    "week",
+    "day_early_max",
+    "day_window_max",
+    "week_early_max",
+    "week_window_max",
+    "threshold_headroom"
+  ],
+  "probability_calibration": {
+    "method": "sigmoid_logit",
+    "coef": 2.0924157811716686,
+    "intercept": 0.43097742479081635,
+    "n": 319,
+    "positives": 38
+  },
+  "high_load_threshold": 176.0,
+  "training_cutoff": "2021-06-03 00:00:00",
+  "issue_month": 7,
+  "decision_threshold": 0.01704555140447065,
+  "model_file": "model_7_F0.txt",
+  "event_definition": "current<=q95; first future crossing end15..120min; no preparation-time exclusion",
+  "selected_on": "AprJun only",
+  "independent_validation": false
+}
