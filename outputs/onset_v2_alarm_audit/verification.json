@@ -1,0 +1,25 @@
+{
+  "status": "complete",
+  "raw_sha256": "8f7af2e49366c93e1d6f5fdef4b5e350066c1792ac463c2c2886e370f4674830",
+  "alphas": [
+    0.01,
+    0.025,
+    0.05,
+    0.1
+  ],
+  "models": [
+    "F0",
+    "week",
+    "day",
+    "current_level"
+  ],
+  "July_reused": true,
+  "thresholds_chosen_before_test": true,
+  "v2_probability_reproduction": "PASS",
+  "v2_alpha005_warning_reproduction": "PASS",
+  "same_candidate_rows": "PASS",
+  "future_FPR_guarantee": false,
+  "operating_model_selected": false,
+  "no_preparation_time": true,
+  "new_external_data": false
+}
