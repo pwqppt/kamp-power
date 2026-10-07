@@ -59,6 +59,7 @@ jobs:
           paths += [str(p) for p in out.glob("*.json")]
           paths += [str(out/config["model_file"])]
           paths += [str(p) for p in Path("figures/onset_v2").glob("*.svg")]
+          paths += [str(p) for p in Path("figures/onset_v2").glob("*.png")]
           paths += ["figures/onset_v2/README.md", "docs/ONSET_V2_RESULTS.md", "PROJECT_STATUS.md", "HANDOFF.md"]
           subprocess.run(["git", "add", *paths], check=True)
           PY

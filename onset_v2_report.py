@@ -7,7 +7,15 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
-import koreanize_matplotlib
+import importlib.util
+from matplotlib import font_manager
+_font_spec = importlib.util.find_spec("koreanize_matplotlib")
+_font_files = sorted(Path(_font_spec.origin).parent.rglob("*.ttf"))
+assert _font_files, "Korean font resource missing"
+_font_path = next((p for p in _font_files if p.stem == "NanumGothic"), _font_files[0])
+font_manager.fontManager.addfont(str(_font_path))
+plt.rcParams["font.family"] = font_manager.FontProperties(fname=str(_font_path)).get_name()
+plt.rcParams["axes.unicode_minus"] = False
 from onset_v2 import OUT, ROOT, scores, raw_load, build, risk_features, current_feature_row, apply_cal
 from lightgbm import Booster
 
