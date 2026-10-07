@@ -67,4 +67,4 @@ alpha·recall·precision·FPR은 % 단위.
 
 기존 확률 및 월고정5% 경보 재현, 정답 시간 경계, 미래 점수/정답 교란 검증 통과. 두 방식의 연속 점수가 동일하므로 점수 분리 능력 자체를 개선한 실험이 아니다. 월별 결과/실패 기록/사건별 탐지/적용 범위를 모두 저장했다. 보고의 정시 예측과 실제 사건 수를 혼동하지 않는다. 실험 도중 최종 정책이나 기준을 재선택하지 않았다. 7월이 좋더라도4월 약점이 해결된 것으로 표현하지 않는다. 반복 전력곡선/센서 기록 공개 시차 미확인은 유지한다.
 
-그래프 직접 검토는 별도 수행한다. 재현: python onset_v2.py 다음 python onset_v2_weekly.py. 출력 outputs/onset_v2_weekly.
+그래프를 직접 렌더링하여 한글·제목·축·눈금·범례 배치를 확인했다. 목표1/5% 모두 사전 성공 기준 미통과이며 정책은 교체하지 않는다. 상세 판단은 docs/ONSET_V2_WEEKLY_REVIEW.md를 참조한다. 재현: python onset_v2.py 다음 python onset_v2_weekly.py. 출력 outputs/onset_v2_weekly.
